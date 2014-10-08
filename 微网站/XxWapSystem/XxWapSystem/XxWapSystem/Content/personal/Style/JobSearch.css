@@ -1,0 +1,126 @@
+﻿/*职位搜索样式 20140625 Add By John*/
+/*高级搜索*/
+#asIcon1{display:inline-block;width:30px;height:30px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) 0 0 no-repeat;}
+#asIcon2{display:inline-block;width:30px;height:30px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) 0 -32px no-repeat;}
+#msIcon1{display:inline-block;width:30px;height:32px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -30px -32px no-repeat;}
+#msIcon2{display:inline-block;width:30px;height:32px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -30px 0 no-repeat;}
+#ssText{display:inline-block;width:80px;vertical-align:top;background:none;}
+#snText{display:inline-block;width:80px;vertical-align:top;background:none;}
+.asContent{background-color:#efefef;width:94%;padding:10px 3% 50px 3%;}
+.asBox{margin-top:10px;width:98%;height:50px;border:1px solid #cac6c7;border-radius:3px;background-color:#fafafa;padding-left:2%;}
+.asBoxL{display:inline-block;margin-top:15px;width:90%;background-color:#fafafa;}
+.asBoxL:after{display:inline-block;content:' ';width:10px;height:10px;margin-left:5px;margin-top:5px;border:#b7b7b7 solid;border-width:0 0 2px 2px;-webkit-transform:rotate(225deg);-moz-transform:rotate(225deg);-o-transform:rotate(225deg);float:right;}
+.asBoxAfter{display:inline-block;width:20px;height:20px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -226px 0 no-repeat;vertical-align:bottom;}
+.asHistory{width:100%;margin-top:50px;}
+.ashLeft{display:inline-block;width:49%;}
+.ashRight{display:inline-block;width:49%;text-align:right;}
+.searchistory{display:inline-block;width:25px;height:22px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -65px 0 no-repeat;}
+.delhistory{display:inline-block;width:22px;height:23px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -100px 0 no-repeat;}
+.ashText{display:inline-block;vertical-align:top;margin-left:5px;color:#747474;}
+.ashContent{background-color:#fff;border:1px solid #cac6c7;border-radius:3px;width:96%;padding:0 2%;margin-top:15px;}
+.ashcRow{display:inline-block;width:100%;margin-top:15px;padding-bottom:15px;border-bottom:1px solid #cac6c7;}
+.ashcRow:last-child{border-bottom:none;}
+.ashcLeft{display:inline-block;width:62%;}
+.ashcRight{display:inline-block;width:38%;text-align:right;color:#ababab;}
+/*职位搜索结果*/
+.asrTt{display:inline-block;width:75%;color:#fff;font-size:16px;padding-top:5px;}
+.asrOption{display:inline-block;width:25%;height:34px;padding-top:17px;font-size:12px;border-right:1px solid #fff;border-left:1px solid #e5e5e5;text-align:center;}
+.asrOption:first-child{border-left:none;}
+.asrOption:last-child{border-right:none;width:20%;padding-top:8px;}
+.asrMore{display:inline-block;width:25px;height:25px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -71px -63px no-repeat;}
+.asrMoreTx{display:inline-block;vertical-align:top;padding-top:2px;}
+.asrTop{display:inline-block;width:35px;height:25px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) 0 -140px no-repeat;vertical-align:bottom;}
+.asrJob_Row{width:100%;display:inline-block;border-bottom:1px solid #d7d7d7;padding-bottom:10px;padding-top:10px}
+.selHighlight{color:#ff5a28;}
+/*本公司其它职位*/
+.asNoRts{background-color:#f7f7f7;padding:30px 5% 450px 5%;line-height:30px;}
+.asNoRts a{text-decoration:underline;color:#1f8ed5;}
+/*高级搜索结果页弹窗*/
+.asrList{width:96%;margin-top:15px;margin-left:2%;margin-right:2%;position:relative;top:0;left:0;background-color:#fff;z-index:11;}
+sanjiaoJSP{position:absolute;top:-20px;*top:-22px;left:8%;display:block;height:0;width:0;font-size:0;line-height:0;border-color:transparent transparent #666 transparent;border-style:dashed dashed solid dashed;border-width:10px;}
+sanjiaoJST{position:absolute;top:-20px;*top:-22px;left:32%;display:block;height:0;width:0;font-size:0;line-height:0;border-color:transparent transparent #666 transparent;border-style:dashed dashed solid dashed;border-width:10px;}
+sanjiaoJSS{position:absolute;top:-20px;*top:-22px;right:40%;display:block;height:0;width:0;font-size:0;line-height:0;border-color:transparent transparent #666 transparent;border-style:dashed dashed solid dashed;border-width:10px;}
+sanjiaoJSM{position:absolute;top:-20px;*top:-22px;right:10%;display:block;height:0;width:0;font-size:0;line-height:0;border-color:transparent transparent #666 transparent;border-style:dashed dashed solid dashed;border-width:10px;}
+.jstr{display:inline-block;width:100%;border-bottom:1px solid #efefef;}
+.jstrAC{display:inline-block;width:100%;border-bottom:1px solid #d4d4d4;background-color:#e5e5e5;}
+.trOpen{background-color:#ededed;}
+.jstd{display:inline-block;width:46%;padding:15px 0 15px 3%;border-left:1px solid #efefef;}
+.jstdAC{display:inline-block;width:44%;padding:15px 0 15px 5%;border-left:1px solid #d4d4d4;}
+.jstdL{display:inline-block;width:46%;padding:15px 0 15px 3%;border-left:1px solid #efefef;}
+.jstdR{display:inline-block;width:35%;padding:15px 0 15px 3%;text-align:right;color:#b9b9b9;}
+#lstMore .jstr:after{content:' ';position:absolute;margin-top:15px;right:5%;width:10px;height:10px;border:#ababab solid;-webkit-transform:rotate(135deg);border-width:2px 2px 0 0;}
+#lstMore .trOpen:after{-webkit-transform:rotate(-45deg);margin-top:22px;}
+#showWF .ck_no,#showWF .ck_yes{padding-left:0;vertical-align:bottom;width:30px;}
+.goUp{display:inline-block;width:100%;text-align:center;padding:20px 0;background-color:#ededed;border-bottom:1px solid #d4d4d4;color:#fb754f;}
+.reIcon{display:inline-block;width:20px;height:20px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -305px 0 no-repeat;margin-left:5px;vertical-align:bottom;}
+.btnAsrMore{display:inline-block;width:60%;height:30px;padding-top:10px;margin:20px 20%;background-color:#ff5a28;border-radius:3px;color:#fff;font-size:18px;text-align:center;}
+#shadowJS{position:absolute;width:100%;max-width:640px;top:103px;background-color:#000;opacity:0.5;z-index:10}
+#shadowRM{position:absolute;width:100%;max-width:640px;top:154px;background-color:#000;opacity:0.5;z-index:10}
+/*职位详情*/
+.jdBox{display:inline-block;width:92%;padding:10px 4%;border-bottom:1px solid #d4d4d4;}
+.jdLn{display:inline-block;width:100%;margin-top:10px;}
+.jdSalary{display:inline-block;margin:10px 0;font-size:18px;}
+.jdBox p{line-height:26px;}
+.jdOther{display:inline-block;margin:20px 0;padding-top:20px;width:100%;border-top:1px solid #d4d4d4;}
+.jdoLn{display:inline-block;width:100%;margin-top:15px;padding-bottom:10px;border-bottom:1px dashed #d5d5d5;}
+.jdoLn a{color:#000;}
+.jdoLnSalary{display:inline-block;float:right;color:#fd5b2a;}
+.jdBottom{width:100%;max-width:640px;height:60px;background-color:#f8f9fb;}
+.jdBottomL{float:left;width:35%;margin-left:10%;}
+.jdBottomR{float:left;width:55%;text-align:center;margin-top:15px;}
+.talkIcon{display:inline-block;margin-left:20px;width:30px;height:37px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -48px -64px no-repeat;background-size:18em 15.7em;}
+.talkIcon1{display:inline-block;margin-left:20px;width:30px;height:37px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -48px -103px no-repeat;background-size:18em 15.7em;}
+.jdOtherBtn{display:inline-block;width:60%;margin:30px 20% 50px 20%;height:35px;background-color:#fd6e44;border-radius:8px;color:#fff;text-align:center;font-size:18px;padding-top:10px;}
+.isAuditCp{display:inline-block;width:23px;height:20px;margin-left:10px;vertical-align:bottom;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -158px 0 no-repeat;}
+/*福利类型*/
+.icoFuli{height:18px;width:23px;display:inline-block;zoom:1;*display:inline;vertical-align:middle;}
+.baoxian{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat 0 -247px;}
+.gongjijin{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -62px -247px;}
+.nianzhongjiang{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -140px -245px;}
+.jiangjin{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -201px -247px;}
+.quanqin{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -281px -245px;}
+.jieri{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -370px -246px;}
+.shuangxiu{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat 0 -282px;}
+.baxiaoshi{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -64px -285px;}
+.xiujia{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -140px -284px;}
+.peixun{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -201px -284px;}
+.lvyou{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -275px -282px;}
+.jiankang{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -370px -282px;}
+.tongxun{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -2px -317px;}
+.shisu{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -65px -318px;}
+.canbu{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -140px -317px;}
+.zhufang{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -201px -317px;}
+.jiaotong{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -275px -317px;}
+.banche{background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) no-repeat -370px -317px;}
+.jdLn label{float:none;font-size:14px;color:#8F8F8F;padding:0;padding-top:3px;vertical-align:middle;margin-right:20px;display:inline-block;zoom:1;*display:inline;}
+/*地图搜索*/
+.currentPosition{display:inline-block;width:100%;position:absolute;top:100px;z-index:11;font-size:14px;color:#fff;background-color:#000;opacity:0.5;max-width:640px;text-align:center;height:24px;padding-top:3px;}
+sanjiaoMS{position:absolute;top:121px;*top:121px;left:49.5%;display:block;z-index:12;height:0;width:0;font-size:0;line-height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid rgba(0,0,0,-0.5);}
+sanjiaoMSI{position:absolute;top:-4px;*top:-4px;left:-10px;display:block;height:0;width:0;font-size:0;line-height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid rgba(0,0,0,0.5);}
+.mapBottom{border-top:1px solid #ff5a2a;background-color:#fff;position:fixed!important;bottom:0px!important;width:100%;max-width:640px;}
+.mapBottomL{display:inline-block;width:14%;padding:2px 2%;text-align:center;border-right:1px solid #efefef;}
+.mapBottomM{display:inline-block;width:60%;text-align:center;vertical-align:top;padding-top:20px;}
+.mapBottomR{display:inline-block;width:14%;padding:2px 2%;text-align:center;border-left:1px solid #efefef;float:right;}
+.mbTextS{font-size:16px;color:#ff5b28;width:100%;display:inline-block;margin-top:-5px;}
+.mbText{font-size:20px;color:#ff5b28;}
+.mbmText{display:inline-block;vertical-align:top;margin-top:-3px;width:70%;}
+.mbmText2{display:inline-block;vertical-align:top;padding-top:2px;}
+.mblIcon{display:inline-block;width:23px;height:25px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -300px -34px no-repeat;}
+.mbrIcon{display:inline-block;width:23px;height:25px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -260px -34px no-repeat;}
+.mbmArrowLNo{display:inline-block;width:16px;height:22px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -108px -35px no-repeat;}
+.mbmArrowLYes{display:inline-block;width:16px;height:22px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -108px -130px no-repeat;}
+.mbmArrowRNo{display:inline-block;width:16px;height:22px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -108px -97px no-repeat;}
+.mbmArrowRYes{display:inline-block;width:16px;height:22px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -108px -66px no-repeat;}
+.mapWin{display:inline-block;width:100%;}
+.mapWinL{float:left;width:15%;padding-right:16px;text-align:center;padding-top:10px;}
+.mapWinR{float:left;width:75%;border-left:1px solid #efefef;padding-left:3%;}
+.mwArrowT{display:inline-block;width:40px;height:16px;margin:10px 0;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -134px -32px no-repeat;}
+.mwArrowB{display:inline-block;width:40px;height:16px;margin:10px 0;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png) -134px -69px no-repeat;}
+.mwText{font-weight:bold;}
+.mwJobName{display:inline-block;width:100%;font-size:20px;}
+.mwCpName{display:inline-block;width:100%;font-size:14px;color:#696969;}
+.mwRow{display:inline-block;width:100%;margin-top:5px;font-size:14px;color:#696969;}
+.mapIconBL{display:inline-block;width:27px;height:27px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png)-215px -32px no-repeat;position:fixed!important;bottom:120px!important;z-index:12;}
+.mapIconM{display:inline-block;width:20px;height:20px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/icons_01.png)-361px -66px no-repeat;position:fixed!important;z-index:12;left:49.5%;}
+#positioning{display:inline-block;position:absolute;z-index:12;top:100px;width:100%;max-width:640px;font-size:14px;color:#fff;text-align:center;}
+.msLoading{display:inline-block;width:25px;height:26px;background:url(http://m.xiaoxiangrc.com/Content/Personal/PImages/msLoading.gif) no-repeat;}
