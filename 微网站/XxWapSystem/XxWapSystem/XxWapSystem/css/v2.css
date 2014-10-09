@@ -454,3 +454,25 @@ body {
 #position li:first-child {
 	background-color: rgb(18, 147, 220);
 }
+.fullscreen{background:none repeat scroll 0 0 #FFFFFF;margin:0 auto;overflow:hidden;position:relative;}
+.fullscreenRegister{/*background:none repeat scroll 0 0 #f1f1f1;*/
+ margin:0 auto;overflow:hidden;position:relative;}
+.top_menu{overflow:hidden;width:100%;font-size:14px;margin-bottom:10px;background:#fafafa;}
+.top_menu div{color:#666666;border-top:0;border-right:0;overflow:hidden;text-align:center;height:35px;width:24.9%;line-height:35px;float:left;}
+.top_menu div a{font-size:15px;text-decoration:none;display:block;color:#666666;}
+.top_menu .selected{width:24%;border-bottom:4px solid #ff9327;padding-top:5px;padding-bottom:5px}
+.top_menu .selected .personlogin{display:inline-block;width:30px;height:30px;background:url(../pimages/loginicon.png) 0px 0px no-repeat;vertical-align:middle;}
+.top_menu .noselected{width:24%;border-bottom:1px solid #c9c9c9;padding-top:5px;padding-bottom:5px}
+.top_menu .noselected .companylogin{display:inline-block;width:40px;height:30px;background:url(../pimages/loginicon.png) -40px 0px no-repeat;vertical-align:middle;}
+.top_menu .selected a{font-size:16px;color:#ff3c00;}
+.top_menu .selected span{width:50px;background:url(../pimages/loginicon.png) 0px 0px no-repeat;}
+.top_menu .noselected a{font-size:16px;color:#666666;}
+.top_menu .register{width:90%;height:41px;padding-top:7px;text-align:left;padding-left:5%}
+.top_menu .register a{font-size:20px;color:#ff3c00;}
+/**企业登录选中样式*/
+.top_menu .cpselected{width:24%;border-bottom:4px solid #0688dc;padding-top:5px;padding-bottom:5px}
+.top_menu .cpselected .companylogin{display:inline-block;width:34px;height:30px;background:url(../pimages/loginicon.png) -42px -39px no-repeat;vertical-align:middle;}
+.top_menu .cpselected a{font-size:20px;color:#0688dc;}
+.top_menu .cpselected span{width:50px;background:url(../pimages/loginicon.png) 0px 0px no-repeat;}
+.top_menu .noselected{width:24%;border-bottom:1px solid #c9c9c9;padding-top:5px;padding-bottom:8px}
+.top_menu .noselected .personlogin{display:inline-block;width:34px;height:30px;background:url(../pimages/loginicon.png) 0px -39px no-repeat;vertical-align:middle;color:#666666}

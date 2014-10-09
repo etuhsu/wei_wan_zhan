@@ -140,7 +140,7 @@
     <Content Include="images\toplogo_bg.png" />
     <Content Include="images\top_btn_bg.png" />
     <Content Include="images\top_nav.png" />
-    <Content Include="index.html" />
+    <Content Include="index.aspx" />
     <Content Include="jc_go\Images.aspx" />
     <Content Include="jc_go\jcgoList.aspx" />
     <Content Include="jc_go\List.html" />

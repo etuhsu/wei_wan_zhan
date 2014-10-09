@@ -10,22 +10,35 @@ namespace XxWapSystem.jc_go
 {
     public partial class jcgoList : System.Web.UI.Page
     {
+        public string AllBudingCount = string.Empty;
+        public string ScriptStr = string.Empty;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            string sjcname= Request["jcname"];
             string sqlstr=string.Empty;
-            if(!Equals(sjcname,null))
-            {
-                sqlstr = "select * from Sys_Product where cProductName like '%" + sjcname.ToString() + "%' order by iID desc";
-            }
-            else
-            {
-                sqlstr = "select top 10 * from Sys_Product order by iID desc";
-            }
+            sqlstr = "select * from Sys_Product" + BuileWhere() + " order by iID desc";
+
             DataSet dt = DBHelperZxw.Query(sqlstr);
             this.rptMessage.DataSource = dt;
             this.rptMessage.DataBind();
 
+        }
+
+        private string BuileWhere()
+        {
+            string StrWhere = " where 1=1 ";
+            string sjcname = Request["jcname"];
+            string ty=Request["ty"];
+            if (!Equals(sjcname, null))
+            {
+                StrWhere +=" and cProductName like '%" + sjcname + "%'";
+            }
+            else if(!Equals(ty,null))
+            {
+                StrWhere += " and iProductTypeID in  (select iID from Sys_ProductType where iID=" + ty + " or iPartentID =" + ty + ")";
+            }
+            ScriptStr = ScriptStr + "$(\"#t" + ty + "\").parent().parent().find(\"dd\").removeClass('checked');$(\"#t" + ty + "\").parent().toggleClass('checked');choose_opts.put(\"HType\", \"" + "类型" + "\");choose_opt_labels['HType']='类型';";
+            return StrWhere;
         }
 
         //返回产品图片
