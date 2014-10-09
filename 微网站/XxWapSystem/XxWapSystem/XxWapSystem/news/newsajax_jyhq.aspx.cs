@@ -6,37 +6,54 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 using System.Text.RegularExpressions;
 using XxWapSystem.DAL;
 
 namespace XxWapSystem.news
 {
-    public partial class CxxxNews : System.Web.UI.Page
+    public partial class newsajax_jyhq : System.Web.UI.Page
     {
-        public string colid = "904";
+        public int PageSize = 20;      //每页显示数据量
+        public int ColID = 0;          //定义栏目编号
+        public int Pages = 1;          //定义页数
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Request["channel"] == null)
+                return;
+            if (Request["page"] == null)
+                return;
+            if (!string.IsNullOrEmpty(Request["channel"]))
             {
-                doDataBind();
+                ColID = int.Parse(Request["channel"].ToString());
+                Pages = int.Parse(Request["page"].ToString());
+                if (!IsPostBack)
+                {
+                    string result = string.Empty;   //定义返回值
+                    //定义sql语句
+                    string sql = string.Empty;
+                    //定义页数对应要筛选的条数
+                    int NewsCount = (Pages - 1) * PageSize;
+                    sql = "select top " + PageSize + "  * from AlArticle where ID not in (select top " + NewsCount + " ID from AlArticle where IsDeleted=0 AND ColId = " + ColID + " and Status='3' order by AddTime desc ) and IsDeleted=0 AND ColId = " + ColID + " and Status='3' order by AddTime desc";
+                    DataSet dt = DBHelper.Query(sql);
+                    if (dt.Tables[0].Rows.Count > 0)
+                    {
+                        StringBuilder ReturnMsg = new StringBuilder();
+                        for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
+                        {
+                            ReturnMsg.Append(string.Format("<li onclick=\"gourl('NewsShow.aspx?id=" + dt.Tables["ds"].Rows[i]["Id"].ToString() + "')\">" + dt.Tables["ds"].Rows[i]["Title"].ToString() + "</li>"));
+                        }
+                        result = ReturnMsg.ToString();
+                    }
+
+                    Response.Write(result);
+                }
             }
         }
 
-        private void doDataBind()
-        {
-            string sql = "select  top 10 * from AlArticle where IsDeleted=0 AND ColId = " + colid + " and Status='3' order by AddTime desc";
-            DataSet dt = DBHelper.Query(sql);
 
-            this.rptlist.DataSource = dt;
-            this.rptlist.DataBind();
-        }
-
-        /// <summary>
-        /// 获取图片路径
-        /// </summary>
-        /// <param name="ImgAddress"></param>
-        /// <returns></returns>
-        public string IsImg(string ImgAddress, string MsContent)
+        public string IsImg(string ImgAddress)
         {
             string msg = string.Empty;
             if (ImgAddress.Length > 0)
@@ -45,24 +62,11 @@ namespace XxWapSystem.news
             }
             else
             {
-                string[] ImgUrl = GetHtmlImageUrlList(MsContent);
-                if (ImgUrl.Length > 0)
-                {
-                    msg = ImgUrl[0];
-                }
-                else
-                {
-                    msg = "../images/no_pic.jpg";
-                }
+                msg = "../images/no_pic.jpg";
             }
             return msg;
         }
-        /// <summary>
-        /// 获取导读
-        /// </summary>
-        /// <param name="ShortContent">导读</param>
-        /// <param name="Content">新闻内容</param>
-        /// <returns></returns>
+
         public string IsShort(string ShortContent, string Content)
         {
             string msg = string.Empty;
@@ -76,7 +80,6 @@ namespace XxWapSystem.news
             }
             return msg;
         }
-
 
 
         public string NoHtml(string Htmlstring) //去除HTML标记 
@@ -108,27 +111,6 @@ namespace XxWapSystem.news
             Htmlstring = HttpContext.Current.Server.HtmlEncode(Htmlstring).Trim();
 
             return Htmlstring;
-        }
-
-        /// <summary> 
-        /// 取得HTML中所有图片的 URL。 
-        /// </summary> 
-        /// <param name="sHtmlText">HTML代码</param> 
-        /// <returns>图片的URL列表</returns> 
-        public static string[] GetHtmlImageUrlList(string sHtmlText)
-        {
-            // 定义正则表达式用来匹配 img 标签 
-            Regex regImg = new Regex(@"<img\b[^<>]*?\bsrc[\s\t\r\n]*=[\s\t\r\n]*[""']?[\s\t\r\n]*(?<imgUrl>[^\s\t\r\n""'<>]*)[^<>]*?/?[\s\t\r\n]*>", RegexOptions.IgnoreCase);
-
-            // 搜索匹配的字符串 
-            MatchCollection matches = regImg.Matches(sHtmlText);
-            int i = 0;
-            string[] sUrlList = new string[matches.Count];
-
-            // 取得匹配项列表 
-            foreach (Match match in matches)
-                sUrlList[i++] = match.Groups["imgUrl"].Value;
-            return sUrlList;
         }
     }
 }

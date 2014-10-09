@@ -213,7 +213,7 @@ background-position: -1px -211px;float: left;margin-right:3px;
 
 .footernav{background: #E8E8E8;height: 30px;width: 100%;overflow: hidden;} 
 .footernav li{
-	height: 30px;float: left;text-align: center;width: 20%; line-height: 30px;position: relative;
+	height: 30px;float: left;text-align: center;width: 25%; line-height: 30px;position: relative;
 }
 .footer{text-align: center;margin-bottom:54px;}
 .footer_link{height: 30px;line-height: 30px;}
@@ -317,7 +317,7 @@ border: solid 1px #eee; width: 80px;
     float: left;
     height: 30px;
     line-height: 30px;
-    margin-top: 1px; padding-left: 5px;width:100%;
+    margin-top: 1px; padding-left: 5px;width:80%;
 }
 .search-submit {
     background: url("../images/search_submit.png") no-repeat scroll 0 0 #FFFFFF;

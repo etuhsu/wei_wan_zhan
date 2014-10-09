@@ -6,30 +6,60 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 using System.Text.RegularExpressions;
 using XxWapSystem.DAL;
-
 namespace XxWapSystem.news
 {
-    public partial class CxxxNews : System.Web.UI.Page
+    public partial class newsajax_zxxw : System.Web.UI.Page
     {
-        public string colid = "904";
+        public int PageSize = 10;      //每页显示数据量
+        public int ColID = 0;          //定义栏目编号
+        public int Pages = 1;          //定义页数
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Request["channel"] == null)
+                return;
+            if (Request["page"] == null)
+                return;
+            if (!string.IsNullOrEmpty(Request["channel"]))
             {
-                doDataBind();
+                ColID = int.Parse(Request["channel"].ToString());
+                Pages = int.Parse(Request["page"].ToString());
+                if (!IsPostBack)
+                {
+                    string result = string.Empty;   //定义返回值
+                    //定义sql语句
+                    string sql = string.Empty;
+                    //定义页数对应要筛选的条数
+                    int NewsCount = (Pages - 1) * PageSize;
+
+                    DataSet dt = new DataSet();
+                    SqlConnection sqlcon;
+                    string strCon = "Data Source=192.168.5.253\\YYFDCW;database=Zxw_data;uid=zxw_data;pwd=zxw_data_2013";
+                    sqlcon = new SqlConnection(strCon);
+
+                    sql = "select top " + PageSize + "  * from Sys_News where iID not in (select top " + NewsCount + " iID from Sys_News where  iTypeID = " + ColID + " and bIsAudit = 1 order by dUpdateTime desc ) and iTypeID = " + ColID + " and bIsAudit = 1 order by dUpdateTime desc";
+                    sqlcon.Open();
+                    SqlDataAdapter command = new SqlDataAdapter(sql, sqlcon);
+                    command.Fill(dt, "ds");
+
+                    if (dt.Tables[0].Rows.Count > 0)
+                    {
+                        StringBuilder ReturnMsg = new StringBuilder();
+                        for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
+                        {
+                            ReturnMsg.Append(string.Format("<li onclick=\"gourl('ZxNewShow.aspx?id=" + dt.Tables["ds"].Rows[i]["iID"].ToString() + "')\"><div class=\"p-img\"><a target=\"_self\" href=\"ZxNewShow.aspx?id=" + dt.Tables["ds"].Rows[i]["iID"].ToString() + "\"><img width=\"50\" height=\"50\" alt=\"" + dt.Tables["ds"].Rows[i]["cTitle"].ToString() + "\" src=\"" + IsImg(dt.Tables["ds"].Rows[i]["cTitleImage"].ToString(), dt.Tables["ds"].Rows[i]["cContent"].ToString()) + "\" /></a></div><div class=\"p-txt\"><div class=\"p-title\"><a target=\"_self\" href=\"ZxNewShow.aspx?id=" + dt.Tables["ds"].Rows[i]["iID"].ToString() + "\">" + dt.Tables["ds"].Rows[i]["cTitle"].ToString() + "</a></div><div class=\"p-summary\">" + IsShort(dt.Tables["ds"].Rows[i]["cIntroduction"].ToString(), dt.Tables["ds"].Rows[i]["cContent"].ToString()) + "</div></div></li>"));
+                        }
+                        result = ReturnMsg.ToString();
+                    }
+                    sqlcon.Close();
+                    Response.Write(result);
+                }
             }
         }
 
-        private void doDataBind()
-        {
-            string sql = "select  top 10 * from AlArticle where IsDeleted=0 AND ColId = " + colid + " and Status='3' order by AddTime desc";
-            DataSet dt = DBHelper.Query(sql);
-
-            this.rptlist.DataSource = dt;
-            this.rptlist.DataBind();
-        }
 
         /// <summary>
         /// 获取图片路径
@@ -41,14 +71,25 @@ namespace XxWapSystem.news
             string msg = string.Empty;
             if (ImgAddress.Length > 0)
             {
-                msg = "http://xx.yyfdcw.com/upload/news/" + ImgAddress;
+                msg = "http://zx.yyfdcw.com" + ImgAddress;
             }
             else
             {
                 string[] ImgUrl = GetHtmlImageUrlList(MsContent);
                 if (ImgUrl.Length > 0)
                 {
-                    msg = ImgUrl[0];
+                    if (ImgUrl[0].ToString().Length > ImgUrl[0].ToString().Replace("zx.yyfdcw.com", "").Length)
+                    {
+                        msg = ImgUrl[0];
+                    }
+                    else if (ImgUrl[0].ToString().Length > ImgUrl[0].ToString().Replace("http://", "").Length)
+                    {
+                        msg = ImgUrl[0];
+                    }
+                    else
+                    {
+                        msg = "http://zx.yyfdcw.com" + ImgUrl[0];
+                    }
                 }
                 else
                 {
@@ -57,6 +98,7 @@ namespace XxWapSystem.news
             }
             return msg;
         }
+
         /// <summary>
         /// 获取导读
         /// </summary>

@@ -80,7 +80,7 @@ namespace XxWapSystem.newhouse
                                 ImageTypeJsq++;
                                 for (int a = 0; a < dtImage.Tables[0].Rows.Count; a++)
                                 {
-                                    ImageMsg.Append(string.Format("<li id=\"img_" + Counter + "\"><a href=\"http://xx.yyfdcw.com" + dtImage.Tables[0].Rows[a]["cThumbnail"].ToString().Replace("\\", "/") + "\" target=\"_blank\"><img src=\"http://xx.yyfdcw.com" + dtImage.Tables[0].Rows[a]["cThumbnail"].ToString().Replace("\\", "/") + "\" alt=\"" + dtImage.Tables[0].Rows[a]["cTitle"].ToString() + "\" /></a></li>"));
+                                    ImageMsg.Append(string.Format("<li id=\"img_" + Counter + "\"><a href=\"http://xx.yyfdcw.com" + dtImage.Tables[0].Rows[a]["cImgAddress"].ToString().Replace("\\", "/") + "\" target=\"_blank\"><img src=\"http://xx.yyfdcw.com" + dtImage.Tables[0].Rows[a]["cThumbnail"].ToString().Replace("\\", "/") + "\" alt=\"" + dtImage.Tables[0].Rows[a]["cTitle"].ToString() + "\" /></a></li>"));
                                     Counter++;
                                 }
                             }
@@ -95,7 +95,7 @@ namespace XxWapSystem.newhouse
                         ImageTypeJsq++;
                         for (int b = 0; b < dt_BuildingImageCount.Tables[0].Rows.Count; b++)
                         {
-                            ImageMsg.Append(string.Format("<li id=\"img_" + Counter + "\"><a href=\"http://xx.yyfdcw.com" + dt_BuildingImageCount.Tables[0].Rows[b]["cThumbnail"].ToString().Replace("\\", "/") + "\" target=\"_blank\"><img src=\"http://xx.yyfdcw.com" + dt_BuildingImageCount.Tables[0].Rows[b]["cThumbnail"].ToString().Replace("\\", "/") + "\" alt=\"" + dt_BuildingImageCount.Tables[0].Rows[b]["cTitle"].ToString() + "\" /></a></li>"));
+                            ImageMsg.Append(string.Format("<li id=\"img_" + Counter + "\"><a href=\"http://xx.yyfdcw.com" + dt_BuildingImageCount.Tables[0].Rows[b]["cImgAddress"].ToString().Replace("\\", "/") + "\" target=\"_blank\"><img src=\"http://xx.yyfdcw.com" + dt_BuildingImageCount.Tables[0].Rows[b]["cThumbnail"].ToString().Replace("\\", "/") + "\" alt=\"" + dt_BuildingImageCount.Tables[0].Rows[b]["cTitle"].ToString() + "\" /></a></li>"));
                             Counter++;
                         }
                     }

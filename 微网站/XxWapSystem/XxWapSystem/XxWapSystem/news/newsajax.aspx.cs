@@ -42,7 +42,7 @@ namespace XxWapSystem.news
                         StringBuilder ReturnMsg = new StringBuilder();
                         for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
                         {
-                            ReturnMsg.Append(string.Format("<li onclick=\"gourl('NewsShow.aspx?id=" + dt.Tables["ds"].Rows[i]["Id"].ToString() + "')\"><div class=\"p-img\"><a target=\"_self\" href=\"NewsShow.aspx?id=" + dt.Tables["ds"].Rows[i]["Id"].ToString() + "\"><img width=\"50\" height=\"50\" alt=\"" + dt.Tables["ds"].Rows[i]["Title"].ToString() + "\" src=\"" + IsImg(dt.Tables["ds"].Rows[i]["TitleImgPath"].ToString()) + "\" /></a></div><div class=\"p-txt\"><div class=\"p-title\"><a target=\"_self\" href=\"NewsShow.aspx?id=" + dt.Tables["ds"].Rows[i]["Id"].ToString() + "\">" + dt.Tables["ds"].Rows[i]["Title"].ToString() + "</a></div><div class=\"p-summary\">" + IsShort(dt.Tables["ds"].Rows[i]["ShortContent"].ToString(), dt.Tables["ds"].Rows[i]["Content"].ToString()) + "</div></div></li>"));
+                            ReturnMsg.Append(string.Format("<li onclick=\"gourl('NewsShow.aspx?id=" + dt.Tables["ds"].Rows[i]["Id"].ToString() + "')\"><div class=\"p-img\"><a target=\"_self\" href=\"NewsShow.aspx?id=" + dt.Tables["ds"].Rows[i]["Id"].ToString() + "\"><img width=\"50\" height=\"50\" alt=\"" + dt.Tables["ds"].Rows[i]["Title"].ToString() + "\" src=\"" + IsImg(dt.Tables["ds"].Rows[i]["TitleImgPath"].ToString(), dt.Tables["ds"].Rows[i]["Content"].ToString()) + "\" /></a></div><div class=\"p-txt\"><div class=\"p-title\"><a target=\"_self\" href=\"NewsShow.aspx?id=" + dt.Tables["ds"].Rows[i]["Id"].ToString() + "\">" + dt.Tables["ds"].Rows[i]["Title"].ToString() + "</a></div><div class=\"p-summary\">" + IsShort(dt.Tables["ds"].Rows[i]["ShortContent"].ToString(), dt.Tables["ds"].Rows[i]["Content"].ToString()) + "</div></div></li>"));
                         }
                         result = ReturnMsg.ToString();
                     }
@@ -52,8 +52,12 @@ namespace XxWapSystem.news
             }
         }
 
-      
-        public string IsImg(string ImgAddress)
+        /// <summary>
+        /// 获取图片路径
+        /// </summary>
+        /// <param name="ImgAddress"></param>
+        /// <returns></returns>
+        public string IsImg(string ImgAddress, string MsContent)
         {
             string msg = string.Empty;
             if (ImgAddress.Length > 0)
@@ -62,11 +66,24 @@ namespace XxWapSystem.news
             }
             else
             {
-                msg = "../images/no_pic.jpg";
+                string[] ImgUrl = GetHtmlImageUrlList(MsContent);
+                if (ImgUrl.Length > 0)
+                {
+                    msg = ImgUrl[0];
+                }
+                else
+                {
+                    msg = "../images/no_pic.jpg";
+                }
             }
             return msg;
         }
-
+        /// <summary>
+        /// 获取导读
+        /// </summary>
+        /// <param name="ShortContent">导读</param>
+        /// <param name="Content">新闻内容</param>
+        /// <returns></returns>
         public string IsShort(string ShortContent, string Content)
         {
             string msg = string.Empty;
@@ -81,7 +98,11 @@ namespace XxWapSystem.news
             return msg;
         }
 
-
+        /// <summary>
+        /// 去除HTML标记
+        /// </summary>
+        /// <param name="Htmlstring"></param>
+        /// <returns></returns>
         public string NoHtml(string Htmlstring) //去除HTML标记 
         {
             //删除脚本 
@@ -111,6 +132,27 @@ namespace XxWapSystem.news
             Htmlstring = HttpContext.Current.Server.HtmlEncode(Htmlstring).Trim();
 
             return Htmlstring;
+        }
+
+        /// <summary> 
+        /// 取得HTML中所有图片的 URL。 
+        /// </summary> 
+        /// <param name="sHtmlText">HTML代码</param> 
+        /// <returns>图片的URL列表</returns> 
+        public static string[] GetHtmlImageUrlList(string sHtmlText)
+        {
+            // 定义正则表达式用来匹配 img 标签 
+            Regex regImg = new Regex(@"<img\b[^<>]*?\bsrc[\s\t\r\n]*=[\s\t\r\n]*[""']?[\s\t\r\n]*(?<imgUrl>[^\s\t\r\n""'<>]*)[^<>]*?/?[\s\t\r\n]*>", RegexOptions.IgnoreCase);
+
+            // 搜索匹配的字符串 
+            MatchCollection matches = regImg.Matches(sHtmlText);
+            int i = 0;
+            string[] sUrlList = new string[matches.Count];
+
+            // 取得匹配项列表 
+            foreach (Match match in matches)
+                sUrlList[i++] = match.Groups["imgUrl"].Value;
+            return sUrlList;
         }
     }
 }

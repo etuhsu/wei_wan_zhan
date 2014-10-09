@@ -24,7 +24,7 @@ namespace XxWapSystem.news
 
         private void doDataBind()
         {
-            string sql = "select  top 10 * from AlArticle where IsDeleted=0 AND ColId = " + colid + " and Status='3' order by AddTime desc";
+            string sql = "select  top 20 * from AlArticle where IsDeleted=0 AND ColId = " + colid + " and Status='3' order by AddTime desc";
             DataSet dt = DBHelper.Query(sql);
 
             this.rptlist.DataSource = dt;

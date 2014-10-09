@@ -46,7 +46,7 @@ namespace XxWapSystem.jc_go
                 //产品图片
                 if (Thumbnail(NewId.ToString()).Length > 0)
                 {
-                    ProductImage = "<img height=\"158\" src=\"" + Thumbnail(NewId.ToString()) + "\" jqimg=\"" + Thumbnail(NewId.ToString()) + "\" width=\"240\">";
+                    ProductImage = string.Format("<a href=\"Images.aspx?id=") + NewId + string.Format("\" target=\"_self\"><img width=\"320\" height=\"200\" src=\"") + Thumbnail(NewId.ToString()) + "\" jqimg=\"" + Thumbnail(NewId.ToString()) + "\" ></a>";
                 }
                 else
                 {

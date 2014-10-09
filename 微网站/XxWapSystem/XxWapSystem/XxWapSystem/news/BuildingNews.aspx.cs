@@ -31,7 +31,12 @@ namespace XxWapSystem.news
             this.rptlist.DataSource = dt;
             this.rptlist.DataBind();
         }
-        public string IsImg(string ImgAddress)
+        /// <summary>
+        /// 获取图片路径
+        /// </summary>
+        /// <param name="ImgAddress"></param>
+        /// <returns></returns>
+        public string IsImg(string ImgAddress, string MsContent)
         {
             string msg = string.Empty;
             if (ImgAddress.Length > 0)
@@ -40,7 +45,15 @@ namespace XxWapSystem.news
             }
             else
             {
-                msg = "../images/no_pic.jpg";
+                string[] ImgUrl = GetHtmlImageUrlList(MsContent);
+                if (ImgUrl.Length > 0)
+                {
+                    msg = ImgUrl[0];
+                }
+                else
+                {
+                    msg = "../images/no_pic.jpg";
+                }
             }
             return msg;
         }
@@ -54,12 +67,17 @@ namespace XxWapSystem.news
             }
             else
             {
-                msg =XxWapSystem.DAL.WbText.SqlText(NoHtml(Content),100);
+                msg = XxWapSystem.DAL.WbText.SqlText(NoHtml(Content), 100);
             }
             return msg;
         }
 
 
+        /// <summary>
+        /// 去除html标记
+        /// </summary>
+        /// <param name="Htmlstring">html</param>
+        /// <returns></returns>
         public string NoHtml(string Htmlstring) //去除HTML标记 
         {
             //删除脚本 
@@ -89,6 +107,27 @@ namespace XxWapSystem.news
             Htmlstring = HttpContext.Current.Server.HtmlEncode(Htmlstring).Trim();
 
             return Htmlstring;
+        }
+
+        /// <summary> 
+        /// 取得HTML中所有图片的 URL。 
+        /// </summary> 
+        /// <param name="sHtmlText">HTML代码</param> 
+        /// <returns>图片的URL列表</returns> 
+        public static string[] GetHtmlImageUrlList(string sHtmlText)
+        {
+            // 定义正则表达式用来匹配 img 标签 
+            Regex regImg = new Regex(@"<img\b[^<>]*?\bsrc[\s\t\r\n]*=[\s\t\r\n]*[""']?[\s\t\r\n]*(?<imgUrl>[^\s\t\r\n""'<>]*)[^<>]*?/?[\s\t\r\n]*>", RegexOptions.IgnoreCase);
+
+            // 搜索匹配的字符串 
+            MatchCollection matches = regImg.Matches(sHtmlText);
+            int i = 0;
+            string[] sUrlList = new string[matches.Count];
+
+            // 取得匹配项列表 
+            foreach (Match match in matches)
+                sUrlList[i++] = match.Groups["imgUrl"].Value;
+            return sUrlList;
         }
     }
 }

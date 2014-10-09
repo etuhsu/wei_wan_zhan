@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XxWapSystem.sellhouse {
+namespace XxWapSystem.news {
     
     
-    public partial class List {
+    public partial class ZxNews {
         
         /// <summary>
         /// rptlist 控件。

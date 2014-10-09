@@ -160,14 +160,11 @@ function gourl(url){
 }
 
 function go_newhouse_detail_url(id,p,origin){
-  if (origin) {
-  window.location='?app=newhouse&act=detail&p='+p+'&id='+id+'&origin=weijia';
-  } else {
-  window.location='?app=newhouse&act=detail&p='+p+'&id='+id;
-  }
+  
+  window.location = 'http://m.yyfdcw.com/newhouse/Show.aspx?ID=' + id;
 }
 function go_sellhouse_block_url(id){
-  window.location='?app=sellhouse&blockid='+id;
+  window.location='http://m.yyfdcw.com/sellhouse/Show.aspx?ID=' + id;
 }
 function go_renthouse_block_url(id){
   window.location='?app=renthouse&blockid='+id;
@@ -219,8 +216,8 @@ function GetUrlParms() {
 	  var pos = pairs[i].indexOf('='); //查找name=value     
 	  if (pos == -1) continue; //如果没有找到就跳过     
 	  var argname = pairs[i].substring(0, pos); //提取name     
-	  var value = pairs[i].substring(pos + 1); //提取value     
-	  args[argname] = unescape(value); //存为属性     
+	  var value = pairs[i].substring(pos + 1); //提取value
+	  args[argname] = value;  //unescape(value); //存为属性     
   }  
   return args;  
 }

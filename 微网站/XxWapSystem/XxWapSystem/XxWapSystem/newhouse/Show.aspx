@@ -62,9 +62,6 @@
             <a href="map.aspx?id=<%=MsgID %>">
                 <img width="300px" height="130px" src="http://api.map.baidu.com/staticimage?width=300&amp;height=130&amp;zoom=14&amp;markers=<%=Yzuobiao %>,<%=Xzuobiao %>&amp;markerStyles=s,0"></a>
         </div>
-        <!--优惠信息-->
-        <!--
--->
         <!--最新动态-->
         <div class="info_h2">
             <span class="info_h2_title">最新资讯</span> <span class="info_h2_more"><a href="News.aspx?id=<%=MsgID %>"
@@ -82,8 +79,8 @@
         </div>
         <!--详细参数-->
         <div class="info_h2">
-            <span class="info_h2_title">详细参数</span><span class="info_h2_more" id="info_box_project_info_btn">展开<i
-                class="icon_down"></i></span></div>
+            <span class="info_h2_title">详细参数</span><span class="info_h2_more" id="info_box_project_info_btn">收起<i
+                class="icon_up"></i></span></div>
         <div class="info_box" id="info_box_project_info">
             <div class="info_content">
                 <div class="info_li">
@@ -134,6 +131,16 @@
                     <span class="info_attr">建设用地规划许可证：</span><span class="info_val"><%=Jsydghxkz %></span></div>
             </div>
         </div>
+        <!--栋信息-->
+        <div class="info_h2">
+            <span class="info_h2_title">每幢房屋具体情况</span></div>
+        <div class="info_box" id="info_box_project_building">
+            <div class="info_content">
+               <%=BuildingInfoHtml %>
+            </div>
+            <div class="btn_more">
+                <span class="info_box_btn" id="info_box_project_building_btn">展开<i class="icon_up"></i></span></div>
+        </div>
         <!--项目介绍-->
         <div class="info_h2">
             <span class="info_h2_title">项目介绍</span></div>
@@ -142,22 +149,26 @@
                 <%=ProjectInfo %>
             </div>
             <div class="btn_more">
-                <span class="info_box_btn" id="info_box_project_intro_btn">展开<i class="icon_down"></i></span></div>
+                <span class="info_box_btn" id="info_box_project_intro_btn">收起<i class="icon_up"></i></span></div>
         </div>
         <!--周边配套-->
         <div class="info_h2">
             <span class="info_h2_title">交房标准</span></div>
-        <div class="info_box">
+        <div class="info_box" id="info_box_project_jfbz">
             <div class="info_content">
                 <%=Jfbz %>
             </div>
+            <div class="btn_more">
+                <span class="info_box_btn" id="info_box_project_jfbz_btn">展开<i class="icon_down"></i></span></div>
         </div>
         <!--交通-->
         <div class="info_h2">
             <span class="info_h2_title">配套信息</span></div>
-        <div class="info_box">
+        <div class="info_box" id="info_box_project_ptxx">
             <div class="info_content">
                 <%=Ptxx %></div>
+            <div class="btn_more">
+                <span class="info_box_btn" id="info_box_project_ptxx_btn">展开<i class="icon_down"></i></span></div>
         </div>
     </div>
     <div class="call_wrap" id="call_bar">
@@ -184,8 +195,8 @@ var dataForWeixin={
 
     <script src="../js/share.js?version=1.0"></script>
 
-   <!--底部导航-->
-  <nav class="footernav">
+    <!--底部导航-->
+    <nav class="footernav">
 <UL>
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
@@ -194,8 +205,8 @@ var dataForWeixin={
   </UL></nav>
     <div class="footer">
         <div class="footer_link">
-            <a href="#" class="agray">标准版</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="agray"
-                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://xx.yyfdcw.com" class="agray">电脑版</a></div>
+            <a href="javascript:void(0)" class="agray"
+                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://www.yyfdcw.com" class="agray">电脑版</a></div>
         <div class="f12 fgray" align="center">
             Copyright &copy; 2014 岳阳房地产网<br />
             m.yyfdcw.com 湘ICP备13012493号</div>

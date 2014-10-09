@@ -24,7 +24,7 @@ namespace XxWapSystem.zx_news
                 this.lblTitle2.Text = dt.Tables[0].Rows[0]["cTitle"].ToString();
                 this.lblDate.Text = dt.Tables[0].Rows[0]["dAddTime"].ToString();
                 Ccoutent = dt.Tables[0].Rows[0]["cContent"].ToString();
-                this.labcontent.Text = dt.Tables[0].Rows[0]["cContent"].ToString();
+                this.labcontent.Text = dt.Tables[0].Rows[0]["cContent"].ToString().Replace("/html/", "http://zx.yyfdcw.com/html/");
                 string sPic = dt.Tables[0].Rows[0]["cThumbnail"].ToString();
                 if (sPic.Length > 5)
                 {

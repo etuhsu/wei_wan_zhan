@@ -90,6 +90,7 @@
     <Content Include="css\gallery.css" />
     <Content Include="css\jquery-impromptu.css" />
     <Content Include="css\Login.css" />
+    <Content Include="css\v2 - 副本.css" />
     <Content Include="css\xk-style.css" />
     <Content Include="Default.aspx" />
     <Content Include="images\app_down_close.png" />
@@ -140,6 +141,7 @@
     <Content Include="images\top_btn_bg.png" />
     <Content Include="images\top_nav.png" />
     <Content Include="index.html" />
+    <Content Include="jc_go\Images.aspx" />
     <Content Include="jc_go\jcgoList.aspx" />
     <Content Include="jc_go\List.html" />
     <Content Include="jc_go\ProductAjax.aspx" />
@@ -179,11 +181,15 @@
     <Content Include="js\share.js" />
     <Content Include="news\JyhqNews.aspx" />
     <Content Include="news\newsajax.aspx" />
+    <Content Include="news\newsajax_jyhq.aspx" />
     <Content Include="news\newsajax_zcxw.aspx" />
+    <Content Include="news\newsajax_zxxw.aspx" />
     <Content Include="news\NewsList.html" />
     <Content Include="news\NewsShow.aspx" />
     <Content Include="news\PolicyNews.aspx" />
     <Content Include="news\PolicyNewShow.aspx" />
+    <Content Include="news\ZxNews.aspx" />
+    <Content Include="news\ZxNewShow.aspx" />
     <Content Include="sellhouse\SearchLink.aspx" />
     <Content Include="zx_news\znlist.aspx" />
     <Content Include="sellhouse\List.aspx" />
@@ -224,6 +230,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jc_go\Images.aspx.cs">
+      <DependentUpon>Images.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jc_go\Images.aspx.designer.cs">
+      <DependentUpon>Images.aspx</DependentUpon>
     </Compile>
     <Compile Include="jc_go\jcgoList.aspx.cs">
       <DependentUpon>jcgoList.aspx</DependentUpon>
@@ -323,12 +336,26 @@
     <Compile Include="news\newsajax.aspx.designer.cs">
       <DependentUpon>newsajax.aspx</DependentUpon>
     </Compile>
+    <Compile Include="news\newsajax_jyhq.aspx.cs">
+      <DependentUpon>newsajax_jyhq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="news\newsajax_jyhq.aspx.designer.cs">
+      <DependentUpon>newsajax_jyhq.aspx</DependentUpon>
+    </Compile>
     <Compile Include="news\newsajax_zcxw.aspx.cs">
       <DependentUpon>newsajax_zcxw.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="news\newsajax_zcxw.aspx.designer.cs">
       <DependentUpon>newsajax_zcxw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="news\newsajax_zxxw.aspx.cs">
+      <DependentUpon>newsajax_zxxw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="news\newsajax_zxxw.aspx.designer.cs">
+      <DependentUpon>newsajax_zxxw.aspx</DependentUpon>
     </Compile>
     <Compile Include="news\NewsShow.aspx.cs">
       <DependentUpon>NewsShow.aspx</DependentUpon>
@@ -350,6 +377,20 @@
     </Compile>
     <Compile Include="news\PolicyNewShow.aspx.designer.cs">
       <DependentUpon>PolicyNewShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="news\ZxNews.aspx.cs">
+      <DependentUpon>ZxNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="news\ZxNews.aspx.designer.cs">
+      <DependentUpon>ZxNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="news\ZxNewShow.aspx.cs">
+      <DependentUpon>ZxNewShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="news\ZxNewShow.aspx.designer.cs">
+      <DependentUpon>ZxNewShow.aspx</DependentUpon>
     </Compile>
     <Compile Include="sellhouse\SearchLink.aspx.cs">
       <DependentUpon>SearchLink.aspx</DependentUpon>

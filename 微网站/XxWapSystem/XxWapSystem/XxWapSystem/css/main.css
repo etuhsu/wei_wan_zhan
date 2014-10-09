@@ -13,6 +13,12 @@
 line-height: 25px;color: #333;font-size: 14px;
 }
 .info_li .info_attr{color: #A6A6A7;font-size: 14px;float: left;padding-left: 10px;padding-right: 10px;}
+/*2014-10-8 begin*/
+.info_li_d{line-height: 25px;height:25px;width: 100%;position: relative;clear: both; font-weight:bold; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid;}
+.info_li_r{line-height: 25px;width: 100%;position: relative;clear: both; margin-top:1px; background-color:rgb(255, 204, 204); height:25px}
+.info_attr_d{ width:50%;font-size: 14px;float: left; text-align:center; }
+.info_val_d{ width:50%;font-size: 14px;float: left; text-align:center;}
+/*end*/
 .info_li .info_val{color: #333;font-size: 14px;float: left;overflow: hidden;height: 25px;}
 .info_li .info_more{float: right;background: #E8E8E8;line-height: 25px;padding-left:5px;position: absolute;top: 2px;right: 2px;}
 

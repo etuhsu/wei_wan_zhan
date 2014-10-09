@@ -28,27 +28,20 @@ href="http://m.yyfdcw.com/">
     <nav class="nav_btn_group" style="max-height: 120px;">
 <UL>
   <LI id="nav_btn_news"><A href="/news/BuildingNews.aspx" 
-  target="_self"><I class="nav_icon_news"></I>房产资讯</A></LI>
+  target="_self"><I class="nav_icon_news"></I>资讯</A></LI>
   <LI id="nav_btn_newhouse"><A href="/newhouse/list.aspx" target="_self"><I 
   class="nav_icon_newhouse"></I>新房</A></LI>
   <LI id="nav_btn_sellhouse"><A href="/sellhouse/list.aspx" 
   target="_self"><I class="nav_icon_sellhouse"></I>二手房</A></LI> 
-  <LI id="nav_btn_decoration"><A href="zx_news/NewsList.aspx" 
-  target="_self"><I class="nav_icon_event"></I>装修动态</A></LI>
-  <LI id="LI4"><A href="jc_go/jcgoList.aspx" 
-  target="_self"><I class="nav_icon_coupon"></I>建设</A></LI>
-  <LI id="LI5"><A href="zx_xyda/xydaList.aspx" 
-  target="_self"><I class="nav_icon_news"></I>信用档案</A></LI>
-  <LI id="LI6"><A href="zx_ts/tsList.aspx" 
-  target="_self"><I class="nav_icon_decoration"></I>装修投诉</A></LI> 
-    </UL></nav>
+  <LI id="nav_btn_decoration"><A href="index.aspx" 
+  target="_self"><I class="nav_icon_decoration"></I>装修</A></LI></UL></nav>
     <!--搜索区域-->
-    <input name="app" id="choose_app" type="hidden">
     <div class="csearch_wrap">
         <div class="choose_opts" id="choose_opts">
             <ul>
-                <li onclick="choose_select('newhouse','新房')">新房</li>
-                <li onclick="choose_select('sellhouse','二手房')">二手房</li>
+                <li id="choose_li_1" onclick="choose_select('newhouse','新房')">新房</li>
+                <li id="choose_li_2" onclick="choose_select('sellhouse','二手房')">二手房</li>
+                <input name="app" id="choose_app" type="hidden" />
             </ul>
         </div>
         <div class="csearch-input">
@@ -75,7 +68,7 @@ href="http://m.yyfdcw.com/">
             <span class="title_news"><a href="/zx/">装修资讯</a></span></h2>
         <div class="cnews_list">
             <ul>
-                <%=ZxNewsHtml%>
+             <%=DecorateHtml %>
             </ul>
         </div>
     </div>
@@ -85,46 +78,39 @@ href="http://m.yyfdcw.com/">
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<LI id="nav_btn_renthouse"><A href="zx_news/NewsList.aspx" 
-  target="_self"><I class="nav_icon_renthouse"></I>装修动态</A></LI>
-  <LI id="nav_btn_tlf"><A href="jc_go/jcgoList.aspx" 
-  target="_self"><I class="nav_icon_tlf"></I>GO便宜</A></LI>
-  <LI id="LI2"><A href="zx_xyda/xydaList.aspx" 
-  target="_self"><I class="nav_icon_decoration"></I>信用档案</A></LI>
-  <LI id="LI1"><A href="zx_ts/tsList.aspx" 
-  target="_self"><I class="nav_icon_decoration"></I>装修投诉</A></LI>  
+<li id="footnav_bbs"><a href="#" target="_self">装修</a></li> 
   </UL></nav>
     <div class="footer">
         <div class="footer_link">
-            <a href="#" class="agray">标准版</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="agray"
-                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://xx.yyfdcw.com" class="agray">电脑版</a></div>
+            <a href="javascript:void(0)" class="agray" style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a
+                href="http://www.yyfdcw.com" class="agray">电脑版</a></div>
         <div class="f12 fgray" align="center">
             Copyright &copy; 2014 岳阳房地产网<br />
             m.yyfdcw.com 湘ICP备13012493号</div>
     </div>
     <div class="btn_gotop" id="btn_gotop" style="display: none;">
     </div>
-</body>
-</html>
 
-<script>
+    <script>
     function choose_select(val, text) {
         $("#choose_app").val(val);
         $("#choose_title font").html(text);
         $("#choose_opts").hide();
     }
-$("#addFavoriteId").click(function() {
-    addFavorite("http://m.yyfdcw.com","岳阳房地产网");}
-
-
     /*************2014-4-23*************************/
     $("#choose_title").mouseover(function() {
         $("#choose_opts").show();
     });
     $("#choose_title").mouseout(function() {
+        $("#choose_opts").mouseover(function() {
+            $("#choose_opts").show();
+        });
         $("#choose_opts").hide();
     });
 
+    $("#app_link").click(function() {
+      addFavorite("http://m.yyfdcw.com", "岳阳房地产网");
+    });
 
     function submitsearch() {
         var searchtype = $("#choose_app").val();
@@ -141,5 +127,7 @@ $("#addFavoriteId").click(function() {
         }
         document.location.href = jumpurl + keyword;
     }
-</script>
+    </script>
 
+</body>
+</html>

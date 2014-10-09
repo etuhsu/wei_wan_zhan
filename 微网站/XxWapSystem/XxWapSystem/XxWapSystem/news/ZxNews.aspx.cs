@@ -7,28 +7,39 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Text;
 using XxWapSystem.DAL;
 
 namespace XxWapSystem.news
 {
-    public partial class CxxxNews : System.Web.UI.Page
+    public partial class ZxNews : System.Web.UI.Page
     {
-        public string colid = "904";
+        public string sss = string.Empty;
+        public string colid = "10";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 doDataBind();
+
             }
         }
-
         private void doDataBind()
         {
-            string sql = "select  top 10 * from AlArticle where IsDeleted=0 AND ColId = " + colid + " and Status='3' order by AddTime desc";
-            DataSet dt = DBHelper.Query(sql);
+            DataSet dt = new DataSet();
+            SqlConnection sqlcon;
+            string strCon = "Data Source=192.168.5.253\\YYFDCW;database=Zxw_data;uid=zxw_data;pwd=zxw_data_2013";
+            sqlcon = new SqlConnection(strCon);
+
+
+            string sql = "select  top 10 * from Sys_News where iTypeID='10' and bIsAudit = 1 order by dUpdateTime desc";
+            sqlcon.Open();
+            SqlDataAdapter command = new SqlDataAdapter(sql, sqlcon);
+            command.Fill(dt, "ds");
 
             this.rptlist.DataSource = dt;
             this.rptlist.DataBind();
+            sqlcon.Close();
         }
 
         /// <summary>
@@ -41,14 +52,25 @@ namespace XxWapSystem.news
             string msg = string.Empty;
             if (ImgAddress.Length > 0)
             {
-                msg = "http://xx.yyfdcw.com/upload/news/" + ImgAddress;
+                msg = "http://zx.yyfdcw.com" + ImgAddress;
             }
             else
             {
                 string[] ImgUrl = GetHtmlImageUrlList(MsContent);
                 if (ImgUrl.Length > 0)
                 {
-                    msg = ImgUrl[0];
+                    if (ImgUrl[0].ToString().Length > ImgUrl[0].ToString().Replace("zx.yyfdcw.com", "").Length)
+                    {
+                        msg = ImgUrl[0];
+                    }
+                    else if (ImgUrl[0].ToString().Length > ImgUrl[0].ToString().Replace("http://", "").Length)
+                    {
+                        msg = ImgUrl[0];
+                    }
+                    else
+                    {
+                        msg = "http://zx.yyfdcw.com" + ImgUrl[0];
+                    }
                 }
                 else
                 {
@@ -57,6 +79,7 @@ namespace XxWapSystem.news
             }
             return msg;
         }
+
         /// <summary>
         /// 获取导读
         /// </summary>
@@ -130,5 +153,6 @@ namespace XxWapSystem.news
                 sUrlList[i++] = match.Groups["imgUrl"].Value;
             return sUrlList;
         }
+
     }
 }

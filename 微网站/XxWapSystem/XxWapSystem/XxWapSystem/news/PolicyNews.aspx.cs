@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Text;
 using XxWapSystem.DAL;
 
 namespace XxWapSystem.news
@@ -14,11 +15,16 @@ namespace XxWapSystem.news
     public partial class PolicyNews : System.Web.UI.Page
     {
         public string colid = "909";
+        public string base64 = "eyJzaXRlIjoieXlmY2oiLCJjb3VudCI6IjQiLCJjaGFubmVsSWQiOiI3MzQ5%20Iiwic3RhcnQiOiIwIiwidXNlck5hbWUiOiJ4aW54aWNhaWppIn0=";
+        public string sss = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 doDataBind();
+
+                sss = encodeCmd();
+                
             }
         }
         private void doDataBind()
@@ -32,7 +38,7 @@ namespace XxWapSystem.news
             string sql = "select  top 10 * from AlArticle where IsDeleted=0 AND ColId =909 and Status='3' order by AddTime desc";
             sqlcon.Open();
             SqlDataAdapter command = new SqlDataAdapter(sql, sqlcon);
-            command.Fill(dt, "ds"); 
+            command.Fill(dt, "ds");
 
             this.rptlist.DataSource = dt;
             this.rptlist.DataBind();
@@ -95,6 +101,81 @@ namespace XxWapSystem.news
             Htmlstring = HttpContext.Current.Server.HtmlEncode(Htmlstring).Trim();
 
             return Htmlstring;
+        }
+
+
+
+
+
+        private static char[] legalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".ToCharArray();
+
+        public static string encode(byte[] data)
+        {
+            int start = 0;
+            int len = data.Length;
+            StringBuilder buf = new StringBuilder(data.Length * 3 / 2);
+
+            int end = len - 3;
+            int i = start;
+            int n = 0;
+
+            while (i <= end)
+            {
+                int d = ((((int)data[i]) & 0x0ff) << 16)
+                        | ((((int)data[i + 1]) & 0x0ff) << 8)
+                        | (((int)data[i + 2]) & 0x0ff);
+
+                buf.Append(legalChars[(d >> 18) & 63]);
+                buf.Append(legalChars[(d >> 12) & 63]);
+                buf.Append(legalChars[(d >> 6) & 63]);
+                buf.Append(legalChars[d & 63]);
+
+                i += 3;
+
+                if (n++ >= 14)
+                {
+                    n = 0;
+                    buf.Append(" ");
+                }
+            }
+
+            if (i == start + len - 2)
+            {
+                int d = ((((int)data[i]) & 0x0ff) << 16)
+                        | ((((int)data[i + 1]) & 255) << 8);
+
+                buf.Append(legalChars[(d >> 18) & 63]);
+                buf.Append(legalChars[(d >> 12) & 63]);
+                buf.Append(legalChars[(d >> 6) & 63]);
+                buf.Append("=");
+            }
+            else if (i == start + len - 1)
+            {
+                int d = (((int)data[i]) & 0x0ff) << 16;
+
+                buf.Append(legalChars[(d >> 18) & 63]);
+                buf.Append(legalChars[(d >> 12) & 63]);
+                buf.Append("==");
+            }
+
+            return buf.ToString();
+        }
+        public static string encodeCmd()
+        {
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add("userName", "xinxicaiji");
+            data.Add("site", "yyfcj");
+            data.Add("channelId", "7349");
+            data.Add("count", "10");
+            data.Add("start", "0");
+            string aaa = "{";
+            foreach (KeyValuePair<string, string> kvp in data)
+            {
+                aaa = aaa + "\""+kvp.Key+"\":\""+kvp.Value+"\",";
+            }
+            aaa = aaa + "}";
+            byte[] bytes = System.Text.Encoding.ASCII.GetBytes(aaa.ToString());
+            return encode(bytes);
         }
     }
 }

@@ -48,6 +48,8 @@ namespace XxWapSystem.newhouse
         public string Yzuobiao = string.Empty;        //当前楼盘y坐标
         public string Ptxx = string.Empty;            //配套信息
 
+        //栋信息
+        public string BuildingInfoHtml = string.Empty;
 
         int AreaID = 0;                             //所属地区编号
         public string AreaName = string.Empty;      //所属区域
@@ -197,7 +199,10 @@ namespace XxWapSystem.newhouse
                     {
                         Ptxx = Ptxx + "<b>职能设施：</b>" + mod.cIntelligentFacilities + "<br/>";
                     }
+                    //绑定输出楼盘资讯
                     doDataBind();
+                    //绑定输出每幢房屋具体情况
+                    doDataBindBuild();
                 }
             }
 
@@ -209,6 +214,47 @@ namespace XxWapSystem.newhouse
 
             this.rptZxdt.DataSource = dt;
             this.rptZxdt.DataBind();
+        }
+
+        private void doDataBindBuild()
+        {
+            string sql = "select iID,cBuildingName,iProjectID,cMeasurementNum from Al_Building where iProjectID=" + MsgID + " and  bIsAudit=1 order by dAddTime desc";
+            DataSet dt = DBHelper.Query(sql);
+
+            if (dt.Tables[0].Rows.Count > 0)
+            {
+                BuildingInfoHtml = BuildingInfoHtml + "<div class=\"info_li_d\"><span class=\"info_attr_d\">栋名称</span><span class=\"info_val_d\">预售许可号</span></div>";
+                for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
+                {
+                    BuildingInfoHtml = BuildingInfoHtml + "<div class=\"info_li_r\"><span class=\"info_attr_d\">" + dt.Tables[0].Rows[i]["cBuildingName"].ToString() + "</span><span class=\"info_val_d\">" + YsxkzNum(dt.Tables[0].Rows[i]["iID"].ToString(), dt.Tables[0].Rows[i]["cMeasurementNum"].ToString()) + "</span></div>";
+                }
+            }
+            else
+            {
+                BuildingInfoHtml = BuildingInfoHtml + "<div class=\"info_li\">暂无栋数据！</div>";
+            }
+        }
+        /// <summary>
+        /// 返回预售许可证编号
+        /// </summary>
+        /// <param name="bid">栋编号</param>
+        /// <param name="clh">测量号码</param>
+        /// <returns></returns>
+        public string YsxkzNum(string bid, string clh)
+        {
+            string msg = string.Empty;
+
+            string sql = "select top 1 * from Al_BuildingYsxkz where iBid=" + bid + "";
+            DataSet dtYsxkz = DBHelper.Query(sql);
+            if (dtYsxkz.Tables[0].Rows.Count > 0)
+            {
+                msg = "<a href='http://xx.yyfdcw.com/hetong/ysz.asp?id=" + clh + "' target=\"_blank\">" + dtYsxkz.Tables[0].Rows[0]["cYsxkzNum"].ToString() + "</a>";
+            }
+            else
+            {
+                msg = "暂无预售许可证！";
+            }
+            return msg;
         }
     }
 }
