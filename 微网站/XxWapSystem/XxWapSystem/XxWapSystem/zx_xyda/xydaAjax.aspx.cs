@@ -19,7 +19,8 @@ namespace XxWapSystem.zx_xyda
             {
                 Page = int.Parse(Request["page"].ToString());
                 int PageCount = (Page - 1) * Pagesize;
-                string sqlstr = "select top " + Pagesize + " * from xyda_jb where iID not in (select top " + PageCount + " iID from xyda_jb order by iID desc) order by iID desc";
+                string WhereStr = BuileWhere();
+                string sqlstr = "select top " + Pagesize + " * from xyda_jb where iID not in (select top " + PageCount + " iID from xyda_jb where 1=1 " + WhereStr + " order by iID desc)" + WhereStr + " order by iID desc";
                 DataSet dt = DBHelperZxw.Query(sqlstr);
                 for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
                 {
@@ -30,5 +31,68 @@ namespace XxWapSystem.zx_xyda
             Response.Write(msg);
 
         }
+
+        private string BuileWhere()
+        {
+            string StrWhere = string.Empty;
+            string sjcname = Request["jcname"];
+            string ty = Request["ty"];
+            string requestc = Request["c"];
+
+            string tystr = string.Empty;
+            if (!string.IsNullOrEmpty(ty))
+            {
+                switch (ty)
+                {
+                    case "1":
+                        tystr = "壹级";
+                        break;
+                    case "2":
+                        tystr = "贰级";
+                        break;
+                    case "3":
+                        tystr = "叁级";
+                        break;
+                    case "4":
+                        tystr = "暂定";
+                        break;
+                }
+            }
+
+            string cstr = string.Empty;
+            if (!string.IsNullOrEmpty(requestc))
+            {
+                switch (requestc)
+                {
+                    case "1":
+                        cstr = "A级";
+                        break;
+                    case "2":
+                        cstr = "B级";
+                        break;
+                    case "3":
+                        cstr = "C级";
+                        break;
+                    case "4":
+                        cstr = "D级";
+                        break;
+                }
+            }
+            if (!Equals(sjcname, null))
+            {
+                StrWhere += " and cqyname like '%" + sjcname + "%'";
+            }
+            if (!Equals(ty, null) && ty != "0")
+            {
+                StrWhere += " and cgrade ='" + tystr + "'";
+            }
+            if (!Equals(requestc, null) && requestc != "0")
+            {
+                StrWhere += " and ccredit ='" + cstr + "'";
+            }
+
+            return StrWhere;
+        }
+
     }
 }

@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <title>岳阳房地产装修网 新闻标题</title>
+    <title>岳阳房地产装修网 建材GO便宜</title>
     <meta name="keywords" content="岳阳房地产装修网,岳阳装修,岳阳装修公司,岳阳建材,岳阳家居,设计师,装修作品,装修日记,本地团购" />
     <meta name="description" content="岳阳房地产装修网是岳阳地区唯一一家专门从事装修信息服务的网络媒体。为您提供最新的行业动态和促销信息、最全的装修建材、最权威的行业规章和信用档案。岳阳房地产装修网致力成为岳阳装修行业最权威的公信媒体。" />
     <meta name="apple-mobile-web-app-title" content="岳阳房地产装修网">

@@ -53,8 +53,8 @@
   </UL></nav>
     <div class="footer">
         <div class="footer_link">
-            <a href="#" class="agray">标准版</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="agray"
-                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://xx.yyfdcw.com" class="agray">电脑版</a></div>
+            <a href="javascript:void(0)" class="agray"
+                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://www.yyfdcw.com" class="agray">电脑版</a></div>
         <div class="f12 fgray" align="center">
             Copyright &copy; 2014 岳阳房地产网<br />
             m.yyfdcw.com 湘ICP备13012493号</div>

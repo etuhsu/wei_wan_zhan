@@ -76,10 +76,10 @@
 </header>
     <div id="ctl00_ContentPlaceHolder1_chooseLogin">
         <div class="top_menu">
-            <div class="cpselected" style="width: 50%;">
+            <div style="width: 50%;" class="noselected">
                 <a class="loginTitle" href="xydaList.aspx"><span class="personlogin"></span>企业信用档案</a>
             </div>
-            <div style="width: 50%;" class="noselected">
+            <div style="width: 50%;" class="cpselected">
                 <a class="loginTitle" href="RyxydaList.aspx"><span class="companylogin"></span>人员信用档案</a>
             </div>
         </div>

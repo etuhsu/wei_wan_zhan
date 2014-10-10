@@ -26,16 +26,16 @@
 <section id="topbar" class="ytopnav_tool">
 <button class="ytop_btn" id="btn_back">返回</button>
 <button class="top_btn_fav_news" onClick="gohome()">回首页</button>
-<h1>促销信息</h1>
+<h1>楼盘促销</h1>
 </section>
 
 </header>
     <div class="ntab_title">
         <ul>
             <li><a href="BuildingNews.aspx">楼盘资讯</a></li>
-            <li><a href="PolicyNews.aspx">政策新闻</a></li>
             <li><a href="JyhqNews.aspx">交易行情</a></li>
-            <li class="selected"><a href="CxxxNews.aspx">促销信息</a></li>
+            <li class="selected"><a href="CxxxNews.aspx">楼盘促销</a></li>
+            <li><a href="ZxNews.aspx">装修促销</a></li>
         </ul>
     </div>
     <div class="clear">
@@ -48,7 +48,7 @@
                         <li onclick="gourl('NewsShow.aspx?id=<%#Eval("Id").ToString()%>')">
                             <div class="p-img">
                                 <a target="_self" href="NewsShow.aspx?id=<%#Eval("Id").ToString()%>">
-                                    <img width="50" height="50" alt="<%#Eval("Title").ToString()%>" src="<%# IsImg(Eval("TitleImgPath").ToString())%>" />
+                                    <img width="50" height="50" alt="<%#Eval("Title").ToString()%>" src="<%# IsImg(Eval("TitleImgPath").ToString(), Eval("Content").ToString())%>" />
                                 </a>
                             </div>
                             <div class="p-txt">
@@ -106,12 +106,12 @@
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<li id="footnav_bbs"><a href="/index.html" target="_self">装修</a></li> 
+<li id="footnav_bbs"><a href="#" target="_self">装修</a></li> 
   </UL></nav>
     <div class="footer">
         <div class="footer_link">
-            <a href="#" class="agray">标准版</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="agray"
-                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://xx.yyfdcw.com" class="agray">电脑版</a></div>
+            <a href="javascript:void(0)" class="agray"
+                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://www.yyfdcw.com" class="agray">电脑版</a></div>
         <div class="f12 fgray" align="center">
             Copyright &copy; 2014 岳阳房地产网<br />
             m.yyfdcw.com 湘ICP备13012493号</div>

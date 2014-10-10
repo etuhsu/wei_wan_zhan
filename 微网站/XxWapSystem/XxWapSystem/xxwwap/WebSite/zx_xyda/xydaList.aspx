@@ -75,10 +75,10 @@
 </header>
     <div id="ctl00_ContentPlaceHolder1_chooseLogin">
         <div class="top_menu">
-            <div class="noselected" style="width: 50%;">
+            <div style="width: 50%;" class="cpselected">
                 <a class="loginTitle" href="xydaList.aspx"><span class="personlogin"></span>企业信用档案</a>
             </div>
-            <div style="width: 50%;" class="cpselected">
+            <div style="width: 50%;"class="noselected">
                 <a class="loginTitle" href="RyxydaList.aspx"><span class="companylogin"></span>人员信用档案</a>
             </div>
         </div>
@@ -97,6 +97,51 @@
         </div>
         </form>
     </div>
+    <!--已选择条件-->
+    <div class="choose_selected">
+        <span class="choose_sel_label">已选条件：</span>
+        <ul id="choose_selected_list">
+        </ul>
+    </div>
+    <!--筛选区域-->
+    <h2 class="h2_tabtitle">
+        <span class="cur_title_font">筛选企业</span></h2>
+    <div class="choose_opt">
+        <!--新的筛选条件start-->
+        <dl>
+            <dt style="width: 80px;">资质等级</dt>
+            <span class="choose_switch"><i class="icon-on"></i></span>
+            <div class="choose_opt_list">
+                <dd class="checked">
+                    <a id="t0" onclick="choose_search('type','0');" href="#">全部</a></dd>
+                <dd>
+                    <a id="t1" onclick="choose_search('type','1');" href="#">壹级</a></dd>
+                <dd>
+                    <a id="t2" onclick="choose_search('type','2');" href="#">贰级</a></dd>
+                <dd>
+                    <a id="t3" onclick="choose_search('type','3');" href="#">叁级</a></dd>
+                <dd>
+                    <a id="t4" onclick="choose_search('type','4');" href="#">暂定</a></dd>
+            </div>
+        </dl>
+        <dl>
+            <dt  style="width: 80px;">信用等级</dt>
+            <span class="choose_switch"><i class="icon-on"></i></span>
+            <div class="choose_opt_list">
+                <dd>
+                    <a id="c0" onclick="choose_search('credit','0');" href="#">全部</a></dd>
+                <dd>
+                    <a id="c1" onclick="choose_search('credit','1');" href="#">A级</a></dd>
+                <dd>
+                    <a id="c2" onclick="choose_search('credit','2');" href="#">B级</a></dd>
+                <dd>
+                    <a id="c3" onclick="choose_search('credit','3');" href="#">C级</a></dd>
+                <dd>
+                    <a id="c4" onclick="choose_search('credit','4');" href="#">D级</a></dd>
+            </div>
+        </dl>
+        <!--新的筛选条件end -->
+    </div>    
     <div class="clear">
     </div>
     <div id="datalist">
@@ -154,6 +199,43 @@
 
             $("#datalist li:even").addClass("bg2");
         });
+
+        //搜索联想
+        $("#searchInput").keyup(function() {
+            var thinkurl = "SearchLink.aspx";
+            var searchInput = $("#searchInput").val();
+            if (searchInput.length >= 1) {
+                $("#sugglist").html('<img src="../images/loading.gif"/>');
+                $("#sugglist").show();
+                $.ajax({
+                    type: 'POST',
+                    url: thinkurl,
+                    data: "k=" + encodeURIComponent($.trim(searchInput)),
+                    success: function(d) {
+                        var bData = eval('(' + d + ')');
+                        if (bData.error == "false") {
+                            var sugglisthtml = '<ul>';
+                            for (var i = 0; i < bData.data.length; i++) {
+                                sugglisthtml += "<li pid=\"" + bData.data[i].id + "\">" + bData.data[i].name + "</li>";
+                            }
+                            sugglisthtml += '</ul>';
+                        }
+                        else {
+                            $("#sugglist").hide();
+                        }
+                        $("#sugglist").html(sugglisthtml);
+                    }
+                });
+            } else {
+                $("#sugglist").hide();
+            }
+
+        });
+
+        $('#sugglist li').live('click', function() {
+            window.location = 'XydaShowJb.aspx?ID=' + $(this).attr("pid");
+            $("#sugglist").hide();
+        });    
     </script>
 
     <!--底部导航-->

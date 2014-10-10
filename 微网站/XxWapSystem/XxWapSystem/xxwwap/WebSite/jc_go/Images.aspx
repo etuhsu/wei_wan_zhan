@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Images.aspx.cs" Inherits="XxWapSystem.newhouse.Images" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Images.aspx.cs" Inherits="XxWapSystem.jc_go.Images" %>
 
 <!DOCTYPE html>
 <html>
@@ -31,15 +31,13 @@
     <header class="m_wrap">
 <section id="topbar" class="topnav_tool">
 <button class="top_btn" id="btn_back">返回</button>
-<h1><span id="curnumber">1</span>/<%=ImageCount%></h1>
+<h1><span id="curnumber">1</span>/<%=ImageCounts%></h1>
 </section>
  
 </header>
     <div class="album_tag">
         <div class="albnav rbox6 f16">
-            <div id="wrapper">
-                    <%=ImageTypeMsgReturn %>
-            </div>
+            
             <div class="clear">
             </div>
         </div>

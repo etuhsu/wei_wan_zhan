@@ -33,7 +33,7 @@
 .selecter.filter li label{padding-left:15px;}
 .selecter li span{color:#FFA145;font-size:14px;padding-left:5px;}
 .hide{display:none;}
-/*nav*/
+/*nav
 nav
 {
 	position:absolute;
@@ -43,7 +43,7 @@ nav
 	top:0;left:0;
 	z-index:11;
 	-webkit-transition:-webkit-transform 0.1s linear;
-	-webkit-transform:translate(0px,0px); display:none;}
+	-webkit-transform:translate(0px,0px); display:none;}*/
 .navRB
 {
 	width:153px;

@@ -58,10 +58,14 @@
         <span class="open_alt">极速体验更省流量</span> <span class="opentxt fr" id="openapp">立即打开</span>
     </div>
     <!--头部LOGO-->
-    <header class="m_wrap"><SECTION class="topnav_tool" 
-id="topbar"><BUTTON class="top_btn" id="btn_back">返回</BUTTON> 
+<header class="m_wrap">
+<section id="topbar" class="ytopnav_tool">
+<button class="ytop_btn" id="Button1">返回</button>
+<button class="top_btn_fav_news" onClick="gohome()">回首页</button>
 <H1><asp:Label ID="lblTitle" runat="server" Text=""></asp:Label></H1>
-</SECTION></header>
+</section>
+</header>    
+
     <div class="news-wrap">
         <h1 class="news-title">
             <asp:Label ID="lblTitle2" runat="server" Text=""></asp:Label></h1>

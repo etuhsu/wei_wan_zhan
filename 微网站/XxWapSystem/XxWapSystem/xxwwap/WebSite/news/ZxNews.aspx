@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JyhqNews.aspx.cs" Inherits="XxWapSystem.news.JyhqNews" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ZxNews.aspx.cs" Inherits="XxWapSystem.news.ZxNews" %>
 
 <!DOCTYPE html>
 <html>
@@ -6,8 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
-    <title>交易行情-岳阳房地产网</title>
-    <meta name="keywords" content="岳阳房产新闻, 岳阳房产资讯, 岳阳房地产网楼盘资讯，岳阳楼市新闻，岳阳楼盘市场分析,岳阳房地产市场动态" />
+    <title>装修促销-岳阳房地产网</title>
+    <meta name="keywords" content="岳阳房产装修促销信息, 岳阳装修资讯, 岳阳房地产网楼盘资讯，岳阳楼市新闻，岳阳楼盘市场分析,岳阳房地产市场动态" />
     <meta name="description" content="岳阳房产新闻,岳阳房地产网提供最及时岳阳房地产新闻、岳阳房产资讯，为您解读岳阳房产最新政策，预测岳阳房价走势，分析岳阳楼市成交数据。岳阳房地产网权威房地产媒体！" />
     <meta name="apple-mobile-web-app-title" content="岳阳房地产网">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="../css/v2.css" />
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
     <link rel="stylesheet" type="text/css" href="../css/base.css" />
+
 </head>
 <body>
     <!--头部LOGO-->
@@ -26,27 +27,39 @@
 <section id="topbar" class="ytopnav_tool">
 <button class="ytop_btn" id="btn_back">返回</button>
 <button class="top_btn_fav_news" onClick="gohome()">回首页</button>
-<h1>交易行情</h1>
+<h1>装修促销</h1>
 </section>
 
 </header>
     <div class="ntab_title">
         <ul>
-             <li><a href="BuildingNews.aspx">楼盘资讯</a></li>
-            <li class="selected"><a href="JyhqNews.aspx">交易行情</a></li>
+            <li><a href="BuildingNews.aspx">楼盘资讯</a></li>
+            <li><a href="JyhqNews.aspx">交易行情</a></li>
             <li><a href="CxxxNews.aspx">楼盘促销</a></li>
-            <li><a href="ZxNews.aspx">装修促销</a></li>
+            <li class="selected"><a href="ZxNews.aspx">装修促销</a></li>
         </ul>
     </div>
     <div class="clear">
     </div>
     <div id="datalist">
-        <div class="nplist_hq">
+        <div class="nplist">
             <ul>
                 <asp:Repeater ID="rptlist" runat="server">
                     <ItemTemplate>
-                        <li onclick="gourl('NewsShow.aspx?id=<%#Eval("Id").ToString()%>')">
-                            <a target="_self" href="NewsShow.aspx?id=<%#Eval("Id").ToString()%>"><%#Eval("Title").ToString()%> </a>
+                        <li onclick="gourl('ZxNewShow.aspx?id=<%#Eval("iID").ToString()%>')">
+                            <div class="p-img">
+                                <a target="_self" href="ZxNewShow.aspx?id=<%#Eval("iID").ToString()%>">
+                                    <img width="50" height="50" alt="<%#Eval("cTitle").ToString()%>" src="<%# IsImg(Eval("cTitleImage").ToString(), Eval("cContent").ToString())%>" />
+                                </a>
+                            </div>
+                            <div class="p-txt">
+                                <div class="p-title">
+                                    <a target="_self" href="ZxNewShow.aspx?id=<%#Eval("iID").ToString()%>"><%#Eval("cTitle").ToString()%> </a>
+                                </div>
+                                <div class="p-summary">
+                                    <%# IsShort(Eval("cIntroduction").ToString(), Eval("cContent").ToString())%>
+                                </div>
+                            </div>
                         </li>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -56,7 +69,7 @@
 
     <script type="text/javascript">
         var page = 2;
-        var url = "newsajax_jyhq.aspx?channel=<%=colid %>";
+        var url = "newsajax_zxxw.aspx?channel=<%=colid %>";
 
         $(document).ready(function() {
             var moreitem = '<div class="more_tag">点击加载更多</div>';
@@ -106,5 +119,6 @@
     </div>
     <div class="btn_gotop" id="btn_gotop" style="display: none;">
     </div>
+    
 </body>
 </html>

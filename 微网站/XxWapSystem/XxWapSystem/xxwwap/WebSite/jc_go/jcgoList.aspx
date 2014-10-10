@@ -20,14 +20,15 @@
 </head>
 <body>
     <!--头部LOGO-->
-    <header class="m_wrap">
-<section id="topbar" class="topnav_tool">
-<button class="top_btn" id="btn_back">返回</button>
+<header class="m_wrap">
+<section id="topbar" class="ytopnav_tool">
+<button class="ytop_btn" id="Button1">返回</button>
+<button class="top_btn_fav_news" onClick="gohome()">回首页</button>
 <h1>建材GO便宜</h1>
 </section>
-</header>
+</header>    
 
-    <script>
+    <script type="text/javascript">
         var choose_opts = new Map();
         var choose_opt_labels = new Array();
 
@@ -35,8 +36,19 @@
             var jumpurl = "?jcname=" + encodeURIComponent(jQuery("#searchInput").val()) + "";
             document.location.href = jumpurl;
         }
-    </script>
 
+        function choose_search(type, val) {
+            var args = GetUrlParms();
+            var temp = "?action=jc";
+            if (type == "type") {
+                temp = temp + "&ty=" + val + "";
+                if (args["key"] == null || args["key"] == "undefined") { } else {
+                    temp = temp + "&key=" + args["key"];
+                }
+            }
+            document.location.href = temp;
+        }
+    </script>
     <!--搜索区域-->
     <div class="search_wrap">
         <div id="sugglist">
@@ -51,7 +63,132 @@
         </div>
         </form>
     </div>
-
+    <!--已选择条件-->
+    <div class="choose_selected">
+        <span class="choose_sel_label">已选条件：</span>
+        <ul id="choose_selected_list">
+        </ul>
+    </div>
+    <!--筛选区域-->
+    <h2 class="h2_tabtitle">
+        <span class="cur_title_font">筛选建材</span></h2>
+    <div class="choose_opt">
+        <!--新的筛选条件start-->
+        <dl>
+            <dt></dt>
+            <span class="choose_switch"><i class="icon-on"></i></span>
+            <div class="choose_opt_list">
+<%--                <dd class="checked">
+                    <a id="A1" onclick="choose_search('type','0');" href="#">全部</a></dd>--%>
+                <dd>
+                    <a id="t1" onclick="choose_search('type','1');" href="#">瓷砖</a></dd>
+                <dd>
+                    <a id="t2" onclick="choose_search('type','2');" href="#">地面砖</a></dd>
+                <dd>
+                    <a id="t3" onclick="choose_search('type','3');" href="#">墙面砖</a></dd>
+                <dd>
+                    <a id="t4" onclick="choose_search('type','4');" href="#">背景类装饰砖</a></dd>
+            </div>
+        </dl>
+        <dl>
+            <dt></dt>
+            <span class="choose_switch"><i class="icon-on"></i></span>
+            <div class="choose_opt_list">
+                <dd>
+                    <a id="t5" onclick="choose_search('type','5');" href="#">地板</a></dd>
+                <dd>
+                    <a id="t6" onclick="choose_search('type','6');" href="#">实木复合地板</a></dd>
+                <dd>
+                    <a id="t7" onclick="choose_search('type','7');" href="#">实木地板</a></dd>
+                <dd>
+                    <a id="t8" onclick="choose_search('type','8');" href="#">竹地板</a></dd>
+                <dd>
+                    <a id="t9" onclick="choose_search('type','9');" href="#">软木地板</a></dd>
+                <dd>
+                    <a id="t10" onclick="choose_search('type','10');" href="#">强化复合地板</a></dd>
+            </div>
+        </dl>
+        <dl>
+            <dt></dt>
+            <span class="choose_switch"><i class="icon-on"></i></span>
+            <div class="choose_opt_list">
+                <dd>
+                    <a id="t11" onclick="choose_search('type','11');" href="#">门</a></dd>
+                <dd>
+                    <a id="t12" onclick="choose_search('type','12');" href="#">室内房门</a></dd>
+                <dd>
+                    <a id="t13" onclick="choose_search('type','13');" href="#">衣柜门</a></dd>
+                <dd>
+                    <a id="t14" onclick="choose_search('type','14');" href="#">隔断门</a></dd>
+            </div>
+        </dl>
+        <dl>
+            <dt></dt>
+            <span class="choose_switch"><i class="icon-on"></i></span>
+            <div class="choose_opt_list">
+                <dd>
+                    <a id="t30" onclick="choose_search('type','30');" href="#">柜体</a></dd>
+                <dd>
+                    <a id="t31" onclick="choose_search('type','31');" href="#">衣柜</a></dd>
+                <dd>
+                    <a id="t35" onclick="choose_search('type','35');" href="#">酒柜</a></dd>
+                <dd>
+                    <a id="t33" onclick="choose_search('type','33');" href="#">书柜</a></dd>
+                <dd>
+                    <a id="t34" onclick="choose_search('type','34');" href="#">鞋柜</a></dd>
+            </div>
+        </dl>
+        <dl>
+            <dt></dt>
+            <span class="choose_switch"><i class="icon-on"></i></span>
+            <div class="choose_opt_list">
+                <dd>
+                    <a id="t15" onclick="choose_search('type','15');" href="#">吊顶</a></dd>
+                <dd>
+                    <a id="t16" onclick="choose_search('type','16');" href="#">厨卫</a></dd>
+                <dd>
+                    <a id="t17" onclick="choose_search('type','17');" href="#">过道</a></dd>
+                <dd>
+                    <a id="t18" onclick="choose_search('type','18');" href="#">阳台</a></dd>
+                <dd>
+                    <a id="t19" onclick="choose_search('type','19');" href="#">墙纸</a></dd>
+            </div>
+        </dl>
+        <dl>
+            <dt></dt>
+            <span class="choose_switch"><i class="icon-on"></i></span>
+            <div class="choose_opt_list">
+                <dd>
+                    <a id="t20" onclick="choose_search('type','20');" href="#">卫浴</a></dd>
+                <dd>
+                    <a id="t21" onclick="choose_search('type','21');" href="#">面盆</a></dd>
+                <dd>
+                    <a id="t22" onclick="choose_search('type','22');" href="#">浴缸</a></dd>
+                <dd>
+                    <a id="t23" onclick="choose_search('type','23');" href="#">座便器</a></dd>
+                <dd>
+                    <a id="t24" onclick="choose_search('type','24');" href="#">淋浴房</a></dd>
+                <dd>
+                    <a id="t25" onclick="choose_search('type','25');" href="#">龙头及花洒</a></dd>
+                <dd>
+                    <a id="t26" onclick="choose_search('type','26');" href="#">橱柜</a></dd>
+                <dd>
+                    <a id="t27" onclick="choose_search('type','27');" href="#">灯饰</a></dd>
+                <dd>
+                    <a id="t28" onclick="choose_search('type','28');" href="#">客餐厅</a></dd>
+                <dd>
+                    <a id="t29" onclick="choose_search('type','29');" href="#">卧室</a></dd>                                                                                
+            </div>
+        </dl>
+        <!--新的筛选条件end -->
+    </div>
+    <div class="choose_more">
+        更多筛选条件<i class="icon-down"></i></div>
+    <!--数据-->
+    <h2 class="h2_tabtitle">
+        <span class="cur_title_count"><i class="bhline"></i>
+            <%=AllBudingCount %>个建材</span>
+    </h2>
     <!--数据-->
     <h2 class="h2_tabtitle">
         <span class="cur_title_count"><i class="bhline"></i>精品家装材料</span>
@@ -86,7 +223,7 @@
 
     <script type="text/javascript">
         var page = 2;
-        var url = "ProductAjax.aspx?Action=list";
+        var url = "ProductAjax.aspx?Action=list<%=RequestStr%>";
 
         $(document).ready(function() {
 
@@ -184,28 +321,28 @@
 
             //搜索联想
             $("#searchInput").keyup(function() {
-                var thinkurl = "#";
+                var thinkurl = "SearchLink.aspx";
                 var searchInput = $("#searchInput").val();
-                if (searchInput.length >= 2) {
+                if (searchInput.length >= 1) {
                     $("#sugglist").html('<img src="../images/loading.gif"/>');
                     $("#sugglist").show();
                     $.ajax({
-                        type: "GET",
+                        type: 'POST',
                         url: thinkurl,
-                        dataType: 'json',
-                        data: "keyword=" + $.trim(searchInput),
-                        success: function(data) {
-                            //$(".search_wrap").append('');
-                            var sugglisthtml = '<ul>';
-                            $.each(data, function(i, n) {
-                                sugglisthtml += "<li bid=\"" + n.id + "\">" + n.name + "</li>";
-                            });
-                            sugglisthtml += '</ul>';
-                            if (data.length == 0) {
+                        data: "k=" + encodeURIComponent($.trim(searchInput)),
+                        success: function(d) {
+                            var bData = eval('(' + d + ')');
+                            if (bData.error == "false") {
+                                var sugglisthtml = '<ul>';
+                                for (var i = 0; i < bData.data.length; i++) {
+                                    sugglisthtml += "<li pid=\"" + bData.data[i].id + "\">" + bData.data[i].name + "</li>";
+                                }
+                                sugglisthtml += '</ul>';
+                            }
+                            else {
                                 $("#sugglist").hide();
                             }
                             $("#sugglist").html(sugglisthtml);
-                            //$("#sugglist").show();
                         }
                     });
                 } else {
@@ -215,11 +352,12 @@
             });
 
             $('#sugglist li').live('click', function() {
-                go_sellhouse_block_url($(this).attr("bid"));
+                window.location = 'ProductShow.aspx?ID=' + $(this).attr("pid");
                 $("#sugglist").hide();
             });
 
         });
+        <%=ScriptStr %>
     </script>
 
     <!--底部导航-->

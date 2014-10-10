@@ -23,7 +23,7 @@
 
 <section id="topbar" class="topnav_tool">
 <button class="top_btn" id="btn_back">返回</button>
-<h1>新房</h1>
+<h1><a href="/newhouse/list.aspx" target="_self">新房</a></h1>
 <button class="top_btn_fav">导航</button>
 </section>
 </header>
@@ -32,9 +32,9 @@
             <li id="topnav_menu_index"><a href="/" target="_self">首页</a><s class="nav_gap"></s></li>
             <li id="topnav_menu_newhouse"><a href="/newhouse/list.aspx" target="_self">新房</a><s
                 class="nav_gap"></s></li>
-            <li id="topnav_menu_sellhouse"><a href="/sellhouse/" target="_self">二手房</a><s class="nav_gap"></s></li>
+            <li id="topnav_menu_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a><s class="nav_gap"></s></li>
             <li id="topnav_menu_news"><a href="/news/BuildingNews.aspx">资讯</a><s class="nav_gap"></s></li>
-            <li id="topnav_menu_renthouse"><a href="/index.html" target="_self">装修</a><s class="nav_gap"></s></li>
+            <li id="topnav_menu_renthouse"><a href="/renthouse/" target="_self">装修</a><s class="nav_gap"></s></li>
         </ul>
         <span class="topnav_contract"><i class="icon-up"></i></span>
     </div>
@@ -628,12 +628,12 @@
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<li id="footnav_bbs"><a href="/index.html" target="_self">装修</a></li> 
+<li id="footnav_bbs"><a href="#" target="_self">装修</a></li> 
   </UL></nav>
     <div class="footer">
         <div class="footer_link">
             <a href="#" class="agray">标准版</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="agray"
-                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://xx.yyfdcw.com" class="agray">电脑版</a></div>
+                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://www.yyfdcw.com" class="agray">电脑版</a></div>
         <div class="f12 fgray" align="center">
             Copyright &copy; 2014 岳阳房地产网<br />
             m.yyfdcw.com 湘ICP备13012493号</div>

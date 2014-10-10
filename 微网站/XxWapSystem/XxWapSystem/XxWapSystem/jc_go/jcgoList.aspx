@@ -223,7 +223,7 @@
 
     <script type="text/javascript">
         var page = 2;
-        var url = "ProductAjax.aspx?Action=list";
+        var url = "ProductAjax.aspx?Action=list<%=RequestStr%>";
 
         $(document).ready(function() {
 
@@ -321,28 +321,28 @@
 
             //搜索联想
             $("#searchInput").keyup(function() {
-                var thinkurl = "#";
+                var thinkurl = "SearchLink.aspx";
                 var searchInput = $("#searchInput").val();
-                if (searchInput.length >= 2) {
+                if (searchInput.length >= 1) {
                     $("#sugglist").html('<img src="../images/loading.gif"/>');
                     $("#sugglist").show();
                     $.ajax({
-                        type: "GET",
+                        type: 'POST',
                         url: thinkurl,
-                        dataType: 'json',
-                        data: "keyword=" + $.trim(searchInput),
-                        success: function(data) {
-                            //$(".search_wrap").append('');
-                            var sugglisthtml = '<ul>';
-                            $.each(data, function(i, n) {
-                                sugglisthtml += "<li bid=\"" + n.id + "\">" + n.name + "</li>";
-                            });
-                            sugglisthtml += '</ul>';
-                            if (data.length == 0) {
+                        data: "k=" + encodeURIComponent($.trim(searchInput)),
+                        success: function(d) {
+                            var bData = eval('(' + d + ')');
+                            if (bData.error == "false") {
+                                var sugglisthtml = '<ul>';
+                                for (var i = 0; i < bData.data.length; i++) {
+                                    sugglisthtml += "<li pid=\"" + bData.data[i].id + "\">" + bData.data[i].name + "</li>";
+                                }
+                                sugglisthtml += '</ul>';
+                            }
+                            else {
                                 $("#sugglist").hide();
                             }
                             $("#sugglist").html(sugglisthtml);
-                            //$("#sugglist").show();
                         }
                     });
                 } else {
@@ -352,7 +352,7 @@
             });
 
             $('#sugglist li').live('click', function() {
-                go_sellhouse_block_url($(this).attr("bid"));
+                window.location = 'ProductShow.aspx?ID=' + $(this).attr("pid");
                 $("#sugglist").hide();
             });
 

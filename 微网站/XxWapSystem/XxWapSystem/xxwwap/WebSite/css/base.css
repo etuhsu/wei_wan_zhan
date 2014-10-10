@@ -317,7 +317,7 @@ border: solid 1px #eee; width: 80px;
     float: left;
     height: 30px;
     line-height: 30px;
-    margin-top: 1px; padding-left: 5px;width:80%;
+    margin-top: 1px; padding-left: 5px;width:100%;
 }
 .search-submit {
     background: url("../images/search_submit.png") no-repeat scroll 0 0 #FFFFFF;
@@ -582,8 +582,13 @@ background-position: 0px -20px;color: #fff;
 .nplist li{border-bottom: solid 1px #E8E8E8;height: 75px;
     padding: 10px 3px;
     position: relative;}
- 
-
+    
+/*2014-10-8*/
+.nplist_hq ul li{background: url("../images/hd/arrow_item.png") no-repeat 10px 8px / 15px 15px; height: 30px; line-height: 30px; padding-left: 30px; border-bottom-color: rgb(238, 238, 238); border-bottom-width: 1px; border-bottom-style: solid;
+    position: relative;overflow:hidden;
+    }
+.nplist_hq ul li a:link{overflow:hidden; height:30px; }
+/*end*/
 .nplist .p-img { 
     display: block;
     float: left;
@@ -726,6 +731,7 @@ background-repeat: repeat-x;width: 80px;color: #fff;line-height: 40px; float: le
 }
 
 .topnav_tool h1,.ytopnav_tool h1{font-weight: bold;font-size: 16px;color: #fff;line-height: 45px;margin:0px auto;text-align: center;overflow: hidden; width: 150px;height:45px;text-overflow:ellipsis;white-space:nowrap;}
+.topnav_tool h1 a,.ytopnav_tool h1 a{font-weight: bold;font-size: 16px;color: #fff;line-height: 45px;margin:0px auto;text-align: center;overflow: hidden; width: 150px;height:45px;text-overflow:ellipsis;white-space:nowrap;}
 
 [class*='bg_transparent']{
 filter:alpha(opacity=80);
@@ -759,8 +765,7 @@ z-index: 100;position: absolute; width: 100%;
     background-repeat: no-repeat;background-position: 5px 10px;padding-left: 50px;color: #fff;font-size: 18px;font-weight: bold;float: left;}
 .call_wrap .call_icon{float: left;width: 60px;padding: 0px;}
 .call_wrap .call_icon img{height: 50px;margin: 0 0 0 10px;position: absolute;z-index: 100;}
-.call_wrap .call_txt{padding-left: 80px;color: #fff;font-size: 16px;float: left;line-height: 28px;font-weight: bold;}
-.call_wrap .tousu_txt{color: #fff;font-size: 14px;float: left;line-height: 20px;font-weight: bold;}
+.call_wrap .call_txt{padding-left: 80px;color: #fff;font-size: 16px;float: left;line-height: 25px;font-weight: bold;}
 .call_wrap .call_btn{color: #fff;font-size: 18px;font-weight: bold;text-align: center;float: right;background: #FFA200;width: 80px;cursor: pointer;position:absolute;right:0px;top:0px;}
 .call_btn a:link{color: #fff;display: block;};
 

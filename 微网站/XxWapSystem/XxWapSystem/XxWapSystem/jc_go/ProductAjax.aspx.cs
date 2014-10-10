@@ -20,7 +20,8 @@ namespace XxWapSystem
             {
                 Page = int.Parse(Request["page"].ToString());
                 int PageCount = (Page - 1) * Pagesize;
-                string sqlstr = "select top " + Pagesize + " * from Sys_Product where iID not in (select top " + PageCount + " iID from Sys_Product order by iID desc) order by iID desc";
+                string WhereStr = BuileWhere();
+                string sqlstr = "select top " + Pagesize + " * from Sys_Product where iID not in (select top " + PageCount + " iID from Sys_Product where 1=1 " + WhereStr + " order by iID desc) " + WhereStr + " order by iID desc";
                 DataSet dt = DBHelperZxw.Query(sqlstr);
                 for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
                 {
@@ -30,6 +31,21 @@ namespace XxWapSystem
             }
             Response.Write(msg);
          
+        }
+        private string BuileWhere()
+        {
+            string StrWhere = string.Empty;
+            string sjcname = Request["jcname"];
+            string ty = Request["ty"];
+            if (!Equals(sjcname, null))
+            {
+                StrWhere += " and cProductName like '%" + sjcname + "%'";
+            }
+            else if (!Equals(ty, null))
+            {
+                StrWhere += " and iProductTypeID in  (select iID from Sys_ProductType where iID=" + ty + " or iPartentID =" + ty + ")";
+            }
+            return StrWhere;
         }
 
         //返回产品图片

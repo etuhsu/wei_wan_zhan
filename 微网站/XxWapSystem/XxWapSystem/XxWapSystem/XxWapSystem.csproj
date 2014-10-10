@@ -140,12 +140,12 @@
     <Content Include="images\toplogo_bg.png" />
     <Content Include="images\top_btn_bg.png" />
     <Content Include="images\top_nav.png" />
-    <Content Include="index.aspx" />
     <Content Include="jc_go\Images.aspx" />
     <Content Include="jc_go\jcgoList.aspx" />
     <Content Include="jc_go\List.html" />
     <Content Include="jc_go\ProductAjax.aspx" />
     <Content Include="jc_go\ProductShow.aspx" />
+    <Content Include="jc_go\SearchLink.aspx" />
     <Content Include="jc_go\Show.html" />
     <Content Include="js\house_gallery.js" />
     <Content Include="js\iscroll.js" />
@@ -191,6 +191,7 @@
     <Content Include="news\ZxNews.aspx" />
     <Content Include="news\ZxNewShow.aspx" />
     <Content Include="sellhouse\SearchLink.aspx" />
+    <Content Include="zxindex.aspx" />
     <Content Include="zx_news\znlist.aspx" />
     <Content Include="sellhouse\List.aspx" />
     <Content Include="sellhouse\Map.aspx" />
@@ -213,6 +214,7 @@
     <Content Include="zx_ts\tsShow.aspx" />
     <Content Include="zx_xyda\RyxydaAjax.aspx" />
     <Content Include="zx_xyda\RyxydaList.aspx" />
+    <Content Include="zx_xyda\SearchLink.aspx" />
     <Content Include="zx_xyda\xydaAjax.aspx" />
     <Content Include="zx_xyda\xydaList.aspx" />
     <Content Include="zx_xyda\XydaShowJb.aspx" />
@@ -258,6 +260,13 @@
     </Compile>
     <Compile Include="jc_go\ProductShow.aspx.designer.cs">
       <DependentUpon>ProductShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jc_go\SearchLink.aspx.cs">
+      <DependentUpon>SearchLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jc_go\SearchLink.aspx.designer.cs">
+      <DependentUpon>SearchLink.aspx</DependentUpon>
     </Compile>
     <Compile Include="newhouse\Images.aspx.cs">
       <DependentUpon>Images.aspx</DependentUpon>
@@ -399,6 +408,13 @@
     <Compile Include="sellhouse\SearchLink.aspx.designer.cs">
       <DependentUpon>SearchLink.aspx</DependentUpon>
     </Compile>
+    <Compile Include="zxindex.aspx.cs">
+      <DependentUpon>zxindex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zxindex.aspx.designer.cs">
+      <DependentUpon>zxindex.aspx</DependentUpon>
+    </Compile>
     <Compile Include="zx_news\znlist.aspx.cs">
       <DependentUpon>znlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -532,6 +548,13 @@
     </Compile>
     <Compile Include="zx_xyda\RyxydaList.aspx.designer.cs">
       <DependentUpon>RyxydaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="zx_xyda\SearchLink.aspx.cs">
+      <DependentUpon>SearchLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zx_xyda\SearchLink.aspx.designer.cs">
+      <DependentUpon>SearchLink.aspx</DependentUpon>
     </Compile>
     <Compile Include="zx_xyda\xydaAjax.aspx.cs">
       <DependentUpon>xydaAjax.aspx</DependentUpon>

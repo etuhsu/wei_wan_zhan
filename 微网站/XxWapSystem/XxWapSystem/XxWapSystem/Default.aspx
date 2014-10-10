@@ -33,7 +33,7 @@ href="http://m.yyfdcw.com/">
   class="nav_icon_newhouse"></I>新房</A></LI>
   <LI id="nav_btn_sellhouse"><A href="/sellhouse/list.aspx" 
   target="_self"><I class="nav_icon_sellhouse"></I>二手房</A></LI> 
-  <LI id="nav_btn_decoration"><A href="index.aspx" 
+  <LI id="nav_btn_decoration"><A href="/zxindex.aspx" 
   target="_self"><I class="nav_icon_decoration"></I>装修</A></LI></UL></nav>
     <!--搜索区域-->
     <div class="csearch_wrap">
@@ -78,7 +78,7 @@ href="http://m.yyfdcw.com/">
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<li id="footnav_bbs"><a href="index.aspx" target="_self">装修</a></li> 
+<li id="footnav_bbs"><a href="/zxindex.aspx" target="_self">装修</a></li> 
   </UL></nav>
     <div class="footer">
         <div class="footer_link">

@@ -23,7 +23,7 @@ namespace XxWapSystem.zx_xyda
                 DataSet dt = DBHelperZxw.Query(sqlstr);
                 for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
                 {
-                    string shuchu = string.Format("<li onclick=\"gourl('XydaShowJb.aspx?id=" + dt.Tables[0].Rows[i]["iID"].ToString() + "')\"><div class=\"p-txt\"><div class=\"p-title\"><a target=\"_self\" href=\"XydaShowJb.aspx?id=" + dt.Tables[0].Rows[i]["iID"].ToString() + "\">姓名：" + dt.Tables[0].Rows[i]["cName"].ToString() + "</a></div><div class=\"p-summary\">企业名称：" + qyname(dt.Tables[0].Rows[i]["iqyID"].ToString()) + "</div></div></li>");
+                    string shuchu = string.Format("<li onclick=\"gourl('XydaShowRyxx.aspx?id=" + dt.Tables[0].Rows[i]["iID"].ToString() + "')\"><div class=\"p-txt\"><div class=\"p-title\"><a target=\"_self\" href=\"XydaShowJb.aspx?id=" + dt.Tables[0].Rows[i]["iID"].ToString() + "\">姓名：" + dt.Tables[0].Rows[i]["cName"].ToString() + "</a></div><div class=\"p-summary\">企业名称：" + qyname(dt.Tables[0].Rows[i]["iqyID"].ToString()) + "</div></div></li>");
                     msg = msg + shuchu;
                 }
             }

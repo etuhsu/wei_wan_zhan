@@ -6,7 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
-    <title><%=Title %>一登记-岳阳房地产信息网</title>
+    <title>
+        <%=Title %>一登记-岳阳房地产信息网</title>
     <meta name="keywords" content="<%=Title %>" />
     <meta name="description" content="<%=ShortContent %>" />
     <meta name="apple-mobile-web-app-title" content="岳阳房地产信息网">
@@ -35,10 +36,11 @@
         <h1 class="news-title">
             <%=Title %></h1>
         <h4 class="news-time">
-            日期：<%=AddTime %> 来源:岳阳房地产网
+            日期：<%=AddTime %>
+            来源:岳阳房地产网
             <!--浏览:次-->
         </h4>
-        <div class="news-content">
+        <div class="news-content" id="NewContentImg">
             <style>
                 p
                 {
@@ -80,9 +82,33 @@
     </div>
 
     <script type="text/javascript">
+//修改内容中图片有超屏的
+$(document).ready(function() {
+    var a = $("#NewContentImg");
+    //在使用find()方法可以找到子元素然后遍历 
+    a.find("img").each(function() {
+        var maxWidth = document.body.clientWidth-10; // 图片最大宽度  
+        var ratio = 0; // 缩放比例  
+        var width = $(this).width(); // 图片实际宽度  
+        var height = $(this).height(); // 图片实际高度  
+        // 检查图片是否超宽  
+        if (width > maxWidth) {
+            ratio = maxWidth / width; // 计算缩放比例  
+            $(this).css("width", maxWidth); // 设定实际显示宽度  
+            height = height * ratio; // 计算等比例缩放后的高度   
+            $(this).css("height", height); // 设定等比例缩放后的高度  
+        }
+    });
+});
+
+    
+    
+    
+    
+    
 //分享
 var share_link =window.location.href;
-var share_content="<%=MsgContent %>";
+var share_content="<%=msgcontent_fx %>";
 var share_title="<%=Title %>";
 var share_img="../images/20140822102210363005.jpg";
 var dataForWeixin={
@@ -98,7 +124,7 @@ var dataForWeixin={
     <script src="../js/share.js?version=1.0"></script>
 
     <!--底部导航-->
-<nav class="footernav">
+    <nav class="footernav">
 <UL>
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
@@ -108,7 +134,7 @@ var dataForWeixin={
     <div class="footer">
         <div class="footer_link">
             <a href="#" class="agray">标准版</a>&nbsp;&nbsp;<a href="javascript:void(0)" class="agray"
-                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://xx.yyfdcw.com" class="agray">电脑版</a></div>
+                style="color: #507FBD;">触屏版</a>&nbsp;&nbsp;<a href="http://www.yyfdcw.com" class="agray">电脑版</a></div>
         <div class="f12 fgray" align="center">
             Copyright &copy; 2014 岳阳房地产网<br />
             m.yyfdcw.com 湘ICP备13012493号</div>
