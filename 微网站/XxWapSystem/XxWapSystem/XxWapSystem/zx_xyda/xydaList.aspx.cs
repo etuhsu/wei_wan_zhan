@@ -12,12 +12,15 @@ namespace XxWapSystem.zx_xyda
     {
         public string ScriptStr = string.Empty;
         public string RequestStr = string.Empty;
+        public string AllBudingCount = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
             string sqyname = Request["qyname"];
             string sqlstr = string.Empty;
 
             string WhereStr = BuileWhere();
+            DataSet dtall = DBHelperZxw.Query("select * from xyda_jb" + WhereStr + " order by icreditvalue desc");
+            AllBudingCount = dtall.Tables[0].Rows.Count.ToString();
             sqlstr = "select top 10 * from xyda_jb " + WhereStr + " order by icreditvalue desc";
             DataSet dt = DBHelperZxw.Query(sqlstr);
             this.rptMessage.DataSource = dt;
@@ -56,7 +59,7 @@ namespace XxWapSystem.zx_xyda
                 }
                 else
                 {
-                    ScriptStr = ScriptStr + "$(\"#t" + ty + "\").parent().parent().find(\"dd\").removeClass('checked');$(\"#t" + ty + "\").parent().toggleClass('checked');choose_opts.put(\"type\", \"" + tystr + "\");choose_opt_labels['type']='资质等级';";
+                    ScriptStr = ScriptStr + "$(\"#t" + ty + "\").parent().parent().find(\"dd\").removeClass('checked');$(\"#t" + ty + "\").parent().toggleClass('checked');choose_opts.put(\"HType\", \"" + tystr + "\");choose_opt_labels['HType']='资质等级';";
                 }
                 RequestStr = "&ty=" + ty;
             }
@@ -86,7 +89,7 @@ namespace XxWapSystem.zx_xyda
                 }
                 else
                 {
-                    ScriptStr = ScriptStr + "$(\"#c" + requestc + "\").parent().parent().find(\"dd\").removeClass('checked');$(\"#c" + requestc + "\").parent().toggleClass('checked');choose_opts.put(\"credit\", \"" + cstr + "\");choose_opt_labels['credit']='信用等级';";
+                    ScriptStr = ScriptStr + "$(\"#c" + requestc + "\").parent().parent().find(\"dd\").removeClass('checked');$(\"#c" + requestc + "\").parent().toggleClass('checked');choose_opts.put(\"HType\", \"" + cstr + "\");choose_opt_labels['HType']='信用等级';";
                 }
                 RequestStr = "&c=" + requestc;
             }

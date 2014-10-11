@@ -62,7 +62,46 @@ namespace XxWapSystem.zx_xyda
                 izyzs = dt.Tables[0].Rows[0]["izyzs"].ToString();
                 ccheck = dt.Tables[0].Rows[0]["ccheck"].ToString();
                 cintro = dt.Tables[0].Rows[0]["cintro"].ToString();
+
+                sqlstr = "select * from xyda_ry where iqyid=" + NewId + " order by iID desc";
+                DataSet dtcyry = DBHelperZxw.Query(sqlstr);
+                this.rptcyry.DataSource = dtcyry;
+                this.rptcyry.DataBind();
+
+                sqlstr = "select * from xyda_xm where iqyid=" + NewId + " order by iID desc";
+                DataSet dtxm = DBHelperZxw.Query(sqlstr);
+                this.rptxm.DataSource = dtxm;
+                this.rptxm.DataBind();
+
+                 sqlstr = "select * from xyda_jf where iqyid=" + NewId + " and ctype='良好信息' and (bIsAudit = 1) order by dCreatetime desc";
+                DataSet dtlh = DBHelperZxw.Query(sqlstr);
+                this.rptlh.DataSource = dtlh;
+                this.rptlh.DataBind();
+
+                 sqlstr = "select * from xyda_jf where iqyid=" + NewId + " and ctype='提示信息' and (bIsAudit = 1) order by dCreatetime desc";
+                DataSet dtts = DBHelperZxw.Query(sqlstr);
+                this.rptts.DataSource = dtts;
+                this.rptts.DataBind();
+
+                 sqlstr = "select * from xyda_jf where iqyid=" + NewId + " and ctype='警示信息' and (bIsAudit = 1) order by dCreatetime desc";
+                DataSet dtjs = DBHelperZxw.Query(sqlstr);
+                this.rptjs.DataSource = dtjs;
+                this.rptjs.DataBind();
             }
+        }
+
+        public string SzPic(string cThumbnail)
+        {
+            string PicStr = string.Empty;
+            if (cThumbnail.Length > 2)
+            {
+                PicStr = "http://zx.yyfdcw.com" + cThumbnail;
+            }
+            else
+            {
+                PicStr = "/images/nopic.gif";
+            }
+            return PicStr;
         }
     }
 }

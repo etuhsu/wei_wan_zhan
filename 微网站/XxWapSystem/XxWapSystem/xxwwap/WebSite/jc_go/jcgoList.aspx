@@ -22,7 +22,7 @@
     <!--头部LOGO-->
 <header class="m_wrap">
 <section id="topbar" class="ytopnav_tool">
-<button class="ytop_btn" id="Button1">返回</button>
+<button class="ytop_btn" id="btn_back">返回</button>
 <button class="top_btn_fav_news" onClick="gohome()">回首页</button>
 <h1>建材GO便宜</h1>
 </section>
@@ -365,10 +365,10 @@
 	<footer>
 		<div class="footer_top">
 		  <div class="islogin">
-			<a href="/news/BuildingNews.aspx">资讯</a><
+			<a href="/news/BuildingNews.aspx">资讯</a>
 			<a href="/newhouse/List.aspx" target="_self">新房</a>
 			<a href="/sellhouse/List.aspx" target="_self">二手房</a>
-			<a href="/index.html" target="_self">装修</a>
+			<a href="/zxindex.aspx" target="_self">装修</a>
           </div>
 		</div>
 		<div class="footer_bottom">

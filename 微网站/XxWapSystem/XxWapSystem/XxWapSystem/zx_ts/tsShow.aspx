@@ -50,19 +50,12 @@
     <link href="../images/apple-touch-icon.png" rel="apple-touch-icon" sizes="144x144">
 </head>
 <body>
-    <div id="app-download-bar" class="app-download-bar" style="display: none">
-        <a id="btn_app_down" href="http://app.house365.com/taofang/?channel=cptfxz" target="_blank">
-        </a><span class="downtxt fr" id="closetip">关闭</span>
-    </div>
-    <div id="app-open-bar" class="app-open-bar" style="display: none">
-        <span class="open_close" id="app_open_close"></span><span class="open_icon"></span>
-        <span class="open_alt">极速体验更省流量</span> <span class="opentxt fr" id="openapp">立即打开</span>
-    </div>
+
     <!--头部LOGO-->
     <header class="m_wrap">
 <section id="topbar" class="topnav_tool">
 <button class="top_btn" id="btn_back">返回</button>
-<h1>房屋装修空鼓</h1>
+<h1><%=ctitle %></h1>
 </section>
  
 </header>

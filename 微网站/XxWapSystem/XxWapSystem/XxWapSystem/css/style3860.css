@@ -30,9 +30,7 @@
 .btn_back{z-index: 1000;position: absolute;top: 15px;left: 3px;height: 25px;line-height: 25px;margin-left: 10px;padding-left: 14px;color: #fff;}
 .btn_back1{display: none;z-index: 1001;}
 .btn_back:before{content: ' ';top: 5px;left: 0;width: 12px;height: 12px;border: #ffffff solid;-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-o-transform: rotate(45deg);border-width: 0 0 3px 3px;display: inline-block;position: absolute;}/*头部*/
-header{position:relative;height:50px;text-align:center;clear:both;   background-image:-webkit-gradient(linear,left top,left bottom,from(#ff5a28),to(#ff5a28));border-bottom:1px solid #d32e18;}
-header h1{font-size:26px;color:#FFF;margin:0 80px; padding-top:5px;}
-header h2{font-size:20px;color:#FFF;margin:0 80px; padding-top:13px;}
+
 a.loginbtn{ float:right;display:block;color:#fff; font-size:16px;margin-top:-24px;margin-right:20px;}
 .header_bar{height:60px;background:#ff5a28;position:relative;}
 .header_bar .menu_icon{width:30px;height:17px;position:absolute;top:50%;left:15px;margin-top:-8px;}
@@ -144,7 +142,7 @@ width: 100%;}
 .footer .footer_top .islogin{float:left;margin-left:15px;line-height:38px;height:38px;}
 .footer .footer_top .islogin a:nth-child(2){margin-left:10px;}
 .footer .footer_top a{color:#fff;font-size:18px;}
-.footer .footer_bottom .gotop{position:fixed!important;bottom:20px!important;width:15%;max-width:88px;}
+.footer .footer_bottom .gotop{position:fixed!important;bottom:20px!important;width:15%;max-width:88px; right:1px;}
 .footer .footer_bottom .links{ margin-top:10px;}
 .footer .footer_bottom .links{padding:10px 0;}
 .footer .footer_bottom .links a{color:#006cb8; font-size:14px;}

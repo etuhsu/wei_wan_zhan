@@ -36,12 +36,13 @@ namespace XxWapSystem.jc_go
             if (!Equals(sjcname, null))
             {
                 StrWhere +=" and cProductName like '%" + sjcname + "%'";
+                RequestStr = "&jcname=" + sjcname;
             }
             else if(!Equals(ty,null))
             {
                 StrWhere += " and iProductTypeID in  (select iID from Sys_ProductType where iID=" + ty + " or iPartentID =" + ty + ")";
+                RequestStr = "&ty=" + ty;
             }
-            RequestStr = "&ty=" + ty;
             string tystr = string.Empty;
             switch (ty)
             {

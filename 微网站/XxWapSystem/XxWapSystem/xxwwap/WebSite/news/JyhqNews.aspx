@@ -94,7 +94,7 @@
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<li id="footnav_bbs"><a href="#" target="_self">装修</a></li> 
+<li id="footnav_bbs"><a href="/zxindex.aspx" target="_self">装修</a></li> 
   </UL></nav>
     <div class="footer">
         <div class="footer_link">

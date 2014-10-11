@@ -28,7 +28,7 @@
 <section id="topbar" class="ytopnav_tool">
 <button class="ytop_btn" id="btn_back">返回</button>
 <button class="top_btn_fav_news" onClick="gohome()">回首页</button>
-<h1><%=Title %></h1>
+<a href="javascript:void(0)" onclick="window.location='/news/ZxNews.aspx';"><h1>装修促销</h1></a>
 </section>
  
 </header>
@@ -126,7 +126,7 @@ var dataForWeixin={
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<li id="footnav_bbs"><a href="#" target="_self">装修</a></li> 
+<li id="footnav_bbs"><a href="/zxindex.aspx" target="_self">装修</a></li> 
   </UL></nav>
     <div class="footer">
         <div class="footer_link">

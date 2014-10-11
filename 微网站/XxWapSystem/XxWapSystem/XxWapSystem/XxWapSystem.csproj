@@ -53,43 +53,20 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Home\images\app_icons.png" />
-    <Content Include="Content\Home\images\banner.jpg" />
-    <Content Include="Content\Home\images\edu.gif" />
-    <Content Include="Content\Home\images\gov.gif" />
-    <Content Include="Content\Home\images\icon_01.png" />
-    <Content Include="Content\Home\images\index_close.png" />
-    <Content Include="Content\Home\images\jsIcon.png" />
-    <Content Include="Content\Home\images\menu_icons.png" />
-    <Content Include="Content\Home\images\msIcon.png" />
-    <Content Include="Content\Home\images\sy_001.jpg" />
-    <Content Include="Content\Home\images\top.png" />
-    <Content Include="Content\Home\Script\index3860.js" />
-    <Content Include="Content\Home\Style\menu.css" />
-    <Content Include="Content\Home\Style\menu3860.css" />
-    <Content Include="Content\Home\Style\Style.css" />
-    <Content Include="Content\Home\Style\style3860.css" />
-    <Content Include="Content\personal\Images\logo\m_logo72.png" />
-    <Content Include="Content\personal\pimages\load.gif" />
-    <Content Include="Content\personal\pimages\loginicon.png" />
-    <Content Include="Content\personal\Script\Ajax.js" />
-    <Content Include="Content\personal\Script\base.min.js" />
-    <Content Include="Content\personal\Script\base.min3860.js" />
-    <Content Include="Content\personal\Script\Common.js" />
-    <Content Include="Content\personal\Script\jm.js" />
-    <Content Include="Content\personal\Script\jquery-1.5.2.min.js" />
-    <Content Include="Content\personal\Script\jquery-1.7.2.js" />
-    <Content Include="Content\personal\Script\js.js" />
-    <Content Include="Content\personal\Style\JobSearch.css" />
-    <Content Include="Content\personal\Style\Style.css" />
-    <Content Include="Content\personal\Style\StyleWin.css" />
-    <Content Include="Content\Script\Html5.js" />
+    <Content Include="images\nopic.gif" />
+    <Content Include="images\sy_001.jpg" />
+    <Content Include="images\top.png" />
+    <Content Include="js\index3860.js" />
+    <Content Include="css\menu3860.css" />
+    <Content Include="js\base.min3860.js" />
+    <Content Include="js\jquery-1.5.2.min.js" />
     <Content Include="css\add2home.css" />
     <Content Include="css\base_index.css" />
     <Content Include="css\base_newhouse.css" />
     <Content Include="css\gallery.css" />
     <Content Include="css\jquery-impromptu.css" />
     <Content Include="css\Login.css" />
+    <Content Include="css\style3860.css" />
     <Content Include="css\v2 - 副本.css" />
     <Content Include="css\xk-style.css" />
     <Content Include="Default.aspx" />
@@ -142,11 +119,9 @@
     <Content Include="images\top_nav.png" />
     <Content Include="jc_go\Images.aspx" />
     <Content Include="jc_go\jcgoList.aspx" />
-    <Content Include="jc_go\List.html" />
     <Content Include="jc_go\ProductAjax.aspx" />
     <Content Include="jc_go\ProductShow.aspx" />
     <Content Include="jc_go\SearchLink.aspx" />
-    <Content Include="jc_go\Show.html" />
     <Content Include="js\house_gallery.js" />
     <Content Include="js\iscroll.js" />
     <Content Include="js\jquery-impromptu.js" />
@@ -208,6 +183,7 @@
     <Content Include="zx_news\newsajax_zn.aspx" />
     <Content Include="zx_news\newsajax_jj.aspx" />
     <Content Include="zx_news\newsajax_gz.aspx" />
+    <Content Include="zx_xyda\RySearchLink.aspx" />
     <Content Include="zx_ts\tsAjax.aspx" />
     <Content Include="zx_ts\tsInput.aspx" />
     <Content Include="zx_ts\tsList.aspx" />
@@ -506,6 +482,13 @@
     </Compile>
     <Compile Include="zx_news\newsajax_gz.aspx.designer.cs">
       <DependentUpon>newsajax_gz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="zx_xyda\RySearchLink.aspx.cs">
+      <DependentUpon>RySearchLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="zx_xyda\RySearchLink.aspx.designer.cs">
+      <DependentUpon>RySearchLink.aspx</DependentUpon>
     </Compile>
     <Compile Include="zx_ts\tsAjax.aspx.cs">
       <DependentUpon>tsAjax.aspx</DependentUpon>

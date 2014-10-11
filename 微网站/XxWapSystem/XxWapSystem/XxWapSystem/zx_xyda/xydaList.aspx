@@ -122,11 +122,11 @@
         </form>
     </div>
     <!--已选择条件-->
-    <div class="choose_selected">
+<%--    <div class="choose_selected">
         <span class="choose_sel_label">已选条件：</span>
         <ul id="choose_selected_list">
         </ul>
-    </div>
+    </div>--%>
     <!--筛选区域-->
     <h2 class="h2_tabtitle">
         <span class="cur_title_font">筛选企业</span></h2>
@@ -152,7 +152,7 @@
             <dt  style="width: 80px;">信用等级</dt>
             <span class="choose_switch"><i class="icon-on"></i></span>
             <div class="choose_opt_list">
-                <dd>
+                <dd class="checked">
                     <a id="c0" onclick="choose_search('credit','0');" href="#">全部</a></dd>
                 <dd>
                     <a id="c1" onclick="choose_search('credit','1');" href="#">A级</a></dd>
@@ -166,8 +166,11 @@
         </dl>
         <!--新的筛选条件end -->
     </div>    
-    <div class="clear">
-    </div>
+    <!--数据-->
+    <h2 class="h2_tabtitle">
+        <span class="cur_title_count"><i class="bhline"></i>
+            <%=AllBudingCount %>个装修企业</span>
+    </h2>
     <div id="datalist">
         <div class="nplist">
             <ul>
@@ -259,7 +262,7 @@
         $('#sugglist li').live('click', function() {
             window.location = 'XydaShowJb.aspx?ID=' + $(this).attr("pid");
             $("#sugglist").hide();
-        });    
+        });
         <%=ScriptStr %>
     </script>
 
@@ -269,7 +272,7 @@
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<li id="footnav_bbs"><a href="/index.html" target="_self">装修</a></li> 
+<li id="footnav_bbs"><a href="/zxindex.aspx" target="_self">装修</a></li> 
 </ul>
 </nav>
     <div class="footer">

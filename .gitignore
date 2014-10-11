@@ -1,4 +1,5 @@
 ﻿.gitignore
+*.designer.cs
 *.txt
 *.ini
 *.htm
@@ -19,12 +20,12 @@ Thumbs.db
 *.mdb
 *.SCC
 *.vbw
-#ͼƬ
 *.swf
 *.jpg
 *.bmp
 *.gif
 *.psd
+*.png
 *.pdb
 *.user
 *.aps

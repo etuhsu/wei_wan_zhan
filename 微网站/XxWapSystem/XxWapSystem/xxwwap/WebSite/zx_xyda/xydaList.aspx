@@ -16,9 +16,9 @@
 
     <script src="../js/common.js?version=1.0"></script>
 
-    <link rel="stylesheet" type="text/css" href="../css/v2.css" />
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
     <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/v2.css" />    
 
     <script type="text/javascript">
         var appdowntip = getCookie('appdowntip');
@@ -44,7 +44,7 @@
             //get_location();
         });
     </script>
-    <script>
+    <script type="text/javascript">
         var choose_opts = new Map();
         var choose_opt_labels = new Array();
 
@@ -52,6 +52,30 @@
             var jumpurl = "?qyname=" + encodeURIComponent(jQuery("#searchInput").val()) + "";
             document.location.href = jumpurl;
         }
+
+        function choose_search(type, val) {
+            var args = GetUrlParms();
+            var temp = "?action=xyda";
+            if (type == "type") {
+                temp = temp + "&ty=" + val + "";
+                if (args["c"] == null || args["c"] == "undefined") { } else {
+                    temp = temp + "&c=" + args["c"];
+                }
+                 if (args["key"] == null || args["key"] == "undefined") { } else {
+                    temp = temp + "&key=" + args["key"];
+                }
+            }
+            else if (type == "credit") {
+                if (args["ty"] == null || args["ty"] == "undefined") { } else {
+                    temp = temp + "&ty=" + args["ty"];
+                }
+                temp = temp + "&c=" + val + "";
+                if (args["key"] == null || args["key"] == "undefined") { } else {
+                    temp = temp + "&key=" + args["key"];
+                }
+            }
+            document.location.href = temp;
+        }        
     </script>    
 
 </head>
@@ -98,11 +122,11 @@
         </form>
     </div>
     <!--已选择条件-->
-    <div class="choose_selected">
+<%--    <div class="choose_selected">
         <span class="choose_sel_label">已选条件：</span>
         <ul id="choose_selected_list">
         </ul>
-    </div>
+    </div>--%>
     <!--筛选区域-->
     <h2 class="h2_tabtitle">
         <span class="cur_title_font">筛选企业</span></h2>
@@ -128,7 +152,7 @@
             <dt  style="width: 80px;">信用等级</dt>
             <span class="choose_switch"><i class="icon-on"></i></span>
             <div class="choose_opt_list">
-                <dd>
+                <dd class="checked">
                     <a id="c0" onclick="choose_search('credit','0');" href="#">全部</a></dd>
                 <dd>
                     <a id="c1" onclick="choose_search('credit','1');" href="#">A级</a></dd>
@@ -142,8 +166,11 @@
         </dl>
         <!--新的筛选条件end -->
     </div>    
-    <div class="clear">
-    </div>
+    <!--数据-->
+    <h2 class="h2_tabtitle">
+        <span class="cur_title_count"><i class="bhline"></i>
+            <%=AllBudingCount %>个装修企业</span>
+    </h2>
     <div id="datalist">
         <div class="nplist">
             <ul>
@@ -169,7 +196,7 @@
 
     <script type="text/javascript">
         var page = 2;
-        var url = "xydaAjax.aspx";
+        var url = "xydaAjax.aspx?Action=list<%=RequestStr%>";
 
         $(document).ready(function() {
             var moreitem = '<div class="more_tag">点击加载更多</div>';
@@ -235,7 +262,8 @@
         $('#sugglist li').live('click', function() {
             window.location = 'XydaShowJb.aspx?ID=' + $(this).attr("pid");
             $("#sugglist").hide();
-        });    
+        });
+        <%=ScriptStr %>
     </script>
 
     <!--底部导航-->
@@ -244,7 +272,7 @@
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<li id="footnav_bbs"><a href="/index.html" target="_self">装修</a></li> 
+<li id="footnav_bbs"><a href="/zxindex.aspx" target="_self">装修</a></li> 
 </ul>
 </nav>
     <div class="footer">

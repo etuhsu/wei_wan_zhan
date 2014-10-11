@@ -426,7 +426,7 @@ padding: 5px;
 .switch_pic img{
     height: 200px;width: 320px;
 } 
-.swipe_wrap{height:190px;width:100%;background:#393939;position: relative;margin-top: -13px;z-index: 5}
+.swipe_wrap{height:190px;width:100%;background:#393939;position: relative;margin-top: -13px; margin-bottom:10px;z-index: 5}
 
 #switch_gallery li img { 
   display:block;
@@ -950,7 +950,7 @@ background: none repeat scroll 0 0 #FF6600;
 	background-size:22px 20px;
 }
 
-
+.detail_info{ margin-top:10px;}
 .info_title{position:relative;line-height:30px;}
 .info_title .apply_btn{
 background: none repeat scroll 0 0 #FF6600;

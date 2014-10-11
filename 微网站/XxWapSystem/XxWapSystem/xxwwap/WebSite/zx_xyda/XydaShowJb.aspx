@@ -62,27 +62,20 @@
 id="topbar"><BUTTON class="top_btn" id="btn_back">返回</BUTTON> 
 <H1>岳阳市装饰装修企业基本情况 </H1>
 </SECTION></header>
-    <div class="ntab_title">
-        <ul>
-            <li class="selected"><a href="XydaShowJb.aspx?id=<%=Request["id"]%>">基本信息</a></li>
-            <li><a href="XydaShowRy.aspx?id=<%=Request["id"]%>">从业人员</a></li>
-            <li><a href="XydaShowXm.aspx?id=<%=Request["id"]%>">代表工程</a></li>
-            <li><a href="XydaShowLh.aspx?id=<%=Request["id"]%>">良好信息</a></li>
-            <li><a href="XydaShowTs.aspx?id=<%=Request["id"]%>">提示信息</a></li>
-            <li><a href="XydaShowJs.aspx?id=<%=Request["id"]%>">警示信息</a></li>
-        </ul>
-    </div>
     <!--基本信息-->
     <div class="news-wrap">
+        <div class="info_h2">
+            <span class="info_h2_title">基本信息</span><span class="info_h2_more" id="info_box_project_info_btn">收起<i
+                class="icon_up"></i></span></div>
         <div class="info_box" id="info_box_project_info">
-            <div class="news-content">
+            <div class="info_content">
                 <table class="white_title_big" border="0" cellspacing="1" width="100%">
                     <tbody>
                         <tr>
-                            <td bgcolor="#ffffff" align="right" width="40%">
+                            <td bgcolor="#ffffff" align="right" width="50%">
                                 企业名称：&nbsp;
                             </td>
-                            <td width="60%">
+                            <td width="50%">
                                 <%=cqyname%>
                             </td>
                         </tr>
@@ -239,10 +232,12 @@ id="topbar"><BUTTON class="top_btn" id="btn_back">返回</BUTTON>
                             </td>
                         </tr>
                         <tr>
-                            <td bgcolor="#ffffff" align="right">
+                            <td bgcolor="#ffffff" colspan="2" align="center">
                                 企业介绍：&nbsp;
                             </td>
-                            <td colspan="3">
+                        </tr>
+                        <tr>
+                            <td colspan="2">
                                 <%=cintro%>
                             </td>
                         </tr>
@@ -250,7 +245,209 @@ id="topbar"><BUTTON class="top_btn" id="btn_back">返回</BUTTON>
                 </table>
             </div>
         </div>
+        <!--从业人员-->
+        <div class="info_h2">
+            <span class="info_h2_title">从业人员</span></div>
+        <div class="info_box" id="info_box_project_building">
+            <div class="info_content">
+                <table cellspacing="0" cellpadding="4" align="center" width="100%" border="1">
+                    <asp:Repeater ID="rptcyry" runat="server">
+                        <ItemTemplate>
+                            <tr>
+                                <td width="50%" rowspan="5" align="right">
+                                    <img src="<%# SzPic(Eval("cThumbnail").ToString())%>" width="200">
+                                </td>
+                                <td bgcolor="#e8ebee">
+                                    姓名：<a href="XydaShowRyxx.aspx?id=<%# Eval("iId").ToString()%>" target="_blank">
+                                        <%# Eval("cName").ToString()%></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    类型：<%# Eval("cType").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    信用等级：<%# Eval("ccredit").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    级别：<%# Eval("cjb").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    证件编号：<%# Eval("czjbh").ToString()%>
+                                </td>
+                            </tr>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </table>
+            </div>
+            <div class="btn_more">
+                <span class="info_box_btn" id="info_box_project_building_btn">展开<i class="icon_up"></i></span></div>
+        </div>
+        <!--代表工程-->
+        <div class="info_h2">
+            <span class="info_h2_title">代表工程</span></div>
         <div class="info_box" id="info_box_project_intro">
+            <div class="info_content">
+                <table cellspacing="0" bordercolordark="#ffffff" cellpadding="4" align="center" bordercolorlight="#333333"
+                    width="100%" border="1">
+                    <asp:Repeater ID="rptxm" runat="server">
+                        <ItemTemplate>
+                            <tr bgcolor="#e8ebee">
+                                <td align="center">
+                                    工程名称：<%# Eval("cxmname").ToString()%>
+                            </tr>
+                            <tr>
+                                </td>
+                                <td align="center">
+                                    竣工时间：<%# Eval("ckgsj").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    质量评定：<%# Eval("cpass").ToString()%>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </table>
+            </div>
+            <div class="btn_more">
+                <span class="info_box_btn" id="info_box_project_intro_btn">展开<i class="icon_up"></i></span></div>
+        </div>
+        <!--良好信息-->
+        <div class="info_h2">
+            <span class="info_h2_title">良好信息</span></div>
+        <div class="info_box" id="info_box_project_jfbz">
+            <div class="info_content">
+                <table cellspacing="0" bordercolordark="#ffffff" cellpadding="4" align="center" bordercolorlight="#333333"
+                    width="100%" border="1">
+                    <asp:Repeater ID="rptlh" runat="server">
+                        <ItemTemplate>
+                            <tr bgcolor="#e8ebee">
+                                <td>
+                                    内容<%# Eval("csanction").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <a href='<%# Eval("cThumbnail").ToString()%>' target="_blank">照片<img src="<%# SzPic(Eval("cThumbnail").ToString())%>" width="200"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    分值<%# Eval("ivalue").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    时间
+                                    <%# Eval("dCreatetime").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    机构<%# Eval("cjg").ToString()%>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </table>
+            </div>
+            <div class="btn_more">
+                <span class="info_box_btn" id="info_box_project_jfbz_btn">展开<i class="icon_up"></i></span></div>
+        </div>
+        <!--提示信息-->
+        <div class="info_h2">
+            <span class="info_h2_title">提示信息</span></div>
+        <div class="info_box" id="info_box_project_ptxx">
+            <div class="info_content">
+                <table cellspacing="0" bordercolordark="#ffffff" cellpadding="4" align="center" bordercolorlight="#333333"
+                    width="100%" border="1">
+                    <asp:Repeater ID="rptts" runat="server">
+                        <ItemTemplate>
+                            <tr bgcolor="#e8ebee">
+                                <td align="center">
+                                    内容<%# Eval("csanction").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <a href='<%# Eval("cThumbnail").ToString()%>' target="_blank">照片<img src="http://zx.yyfdcw.com<%# Eval("cThumbnail").ToString()%>"
+                                        width="320" height="240"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    分值<%# Eval("ivalue").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    时间
+                                    <%# Eval("dCreatetime").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    机构<%# Eval("cjg").ToString()%>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </table>
+            </div>
+            <div class="btn_more">
+                <span class="info_box_btn" id="info_box_project_ptxx_btn">展开<i class="icon_up"></i></span></div>
+        </div>
+        <!--警示信息-->
+        <div class="info_h2">
+            <span class="info_h2_title">警示信息</span></div>
+        <div class="info_box" id="Div4">
+            <div class="info_content">
+                <table cellspacing="0" bordercolordark="#ffffff" cellpadding="4" align="center" bordercolorlight="#333333"
+                    width="100%" border="1">
+                    <asp:Repeater ID="rptjs" runat="server">
+                        <ItemTemplate>
+                            <tr bgcolor="#e8ebee">
+                                <td align="center">
+                                    内容<%# Eval("csanction").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <a href='<%# Eval("cThumbnail").ToString()%>' target="_blank">照片<img src="http://zx.yyfdcw.com<%# Eval("cThumbnail").ToString()%>"
+                                        width="320" height="240"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    分值<%# Eval("ivalue").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    时间
+                                    <%# Eval("dCreatetime").ToString()%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    机构<%# Eval("cjg").ToString()%>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </table>
+            </div>
+            <div class="btn_more">
+                <span class="info_box_btn" id="Span4">展开<i class="icon_up"></i></span></div>
         </div>
     </div>
 
@@ -278,7 +475,7 @@ var dataForWeixin={
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<li id="footnav_bbs"><a href="/index.html" target="_self">装修</a></li> 
+<li id="footnav_bbs"><a href="/zxindex.aspx" target="_self">装修</a></li> 
 </ul>
 </nav>
     <div class="footer">

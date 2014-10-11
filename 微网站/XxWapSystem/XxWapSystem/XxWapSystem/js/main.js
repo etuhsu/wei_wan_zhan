@@ -60,12 +60,12 @@ $(document).ready(function() {
 
     //栋信息折叠
     var project_d_show = true;
-    $("#info_box_project_building .info_content").css("height", "125px");
+    $("#info_box_project_building .info_content").css("height", "275px");
     $("#info_box_project_building_btn").click(function() {
         project_d_show = !project_d_show;
         if (project_d_show) {
             $("#info_box_project_building_btn").html('<i class="icon_down"></i>展开');
-            $("#info_box_project_building .info_content").css("height", "125px");
+            $("#info_box_project_building .info_content").css("height", "275px");
         } else {
             $("#info_box_project_building_btn").html('<i class="icon_up"></i>收起');
             $("#info_box_project_building .info_content").css("height", "auto");

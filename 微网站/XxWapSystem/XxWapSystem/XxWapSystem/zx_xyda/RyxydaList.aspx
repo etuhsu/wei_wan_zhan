@@ -154,6 +154,43 @@
             });
 
             $("#datalist li:even").addClass("bg2");
+
+            //搜索联想
+            $("#searchInput").keyup(function() {
+                var thinkurl = "RySearchLink.aspx";
+                var searchInput = $("#searchInput").val();
+                if (searchInput.length >= 1) {
+                    $("#sugglist").html('<img src="../images/loading.gif"/>');
+                    $("#sugglist").show();
+                    $.ajax({
+                        type: 'POST',
+                        url: thinkurl,
+                        data: "k=" + encodeURIComponent($.trim(searchInput)),
+                        success: function(d) {
+                            var bData = eval('(' + d + ')');
+                            if (bData.error == "false") {
+                                var sugglisthtml = '<ul>';
+                                for (var i = 0; i < bData.data.length; i++) {
+                                    sugglisthtml += "<li pid=\"" + bData.data[i].id + "\">" + bData.data[i].name + "</li>";
+                                }
+                                sugglisthtml += '</ul>';
+                            }
+                            else {
+                                $("#sugglist").hide();
+                            }
+                            $("#sugglist").html(sugglisthtml);
+                        }
+                    });
+                } else {
+                    $("#sugglist").hide();
+                }
+
+            });
+
+            $('#sugglist li').live('click', function() {
+                window.location = 'XydaShowRyxx?ID=' + $(this).attr("pid");
+                $("#sugglist").hide();
+            });            
         });
     </script>
 
@@ -163,7 +200,7 @@
 <li id="footernav_news"><a href="/news/BuildingNews.aspx">资讯</a></li>
 <li id="footernav_newhouse"><a href="/newhouse/List.aspx" target="_self">新房</a></li>
 <li id="footernav_sellhouse"><a href="/sellhouse/List.aspx" target="_self">二手房</a></li> 
-<li id="footnav_bbs"><a href="/index.html" target="_self">装修</a></li> 
+<li id="footnav_bbs"><a href="/zxindex.aspx" target="_self">装修</a></li> 
 </ul>
 </nav>
     <div class="footer">
